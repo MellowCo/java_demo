@@ -1,0 +1,4 @@
+com\li\entity\Student.class
+com\li\entity\StudentClass.class
+com\li\dao\StudentMapper.class
+com\li\dao\StudentClassMapper.class

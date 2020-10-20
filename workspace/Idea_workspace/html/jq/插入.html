@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 内部插入
+        // append(content|fn)
+        // appendTo(content)
+        // prepend(content|fn)
+        // prependTo(content)
+        // 外部插入
+        // after(content|fn)
+        // before(content|fn)
+        // insertAfter(content)
+        // insertBefore(content)
+        $(function () {
+           $("button").eq(1).click(function () {
+               var $li = $("<li>new</li>");
+               // $("ul").append($li);
+               // $li.appendTo("ul");
+
+               // $("ul").prepend($li);
+               // $li.prependTo("ul");
+               // $("ul").after($li);
+
+               $(".one").remove();
+           });
+        });
+
+    </script>
+
+</head>
+<body>
+<button>按钮</button>
+<button>delete</button>
+
+<div>
+    <ul>
+        <li>1</li>
+        <li class="one"> 2</li>
+        <li>3</li>
+        <li class="one">3</li>
+        <li>3</li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+dubbo:
+  # \u914D\u7F6E\u626B\u63CF\u5305
+  scan:
+    base-packages: com.li.provider.service
+    # zookeeper\u7684\u670D\u52A1\u5668\u5730\u5740
+  registry:
+    address: zookeeper://192.168.1.134:2181
+  # \u914D\u7F6E\u9879\u76EE\u540D
+  application:
+    name: consumer

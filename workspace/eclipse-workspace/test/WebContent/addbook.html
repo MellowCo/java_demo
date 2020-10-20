@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Refresh" content="text/html; charset=gb2312" >
+<title>无标题文档</title>
+
+</head>
+
+<body>
+
+<div align="center">
+  <table width="344"  border="0">
+    <tr>
+      <td width="43">&nbsp;</td>
+      <td width="195"><div align="center"><font color="#CC6600" size="+6" face="隶书">添加图书</font></div></td>
+      <td width="92"><div align="right"><strong><font size="6" face="隶书"></font></strong></div></td>
+    </tr>
+  </table>
+</div>
+<form action="AddServlet" method="post" name="form1" onSubmit="return mycheck()" >
+<table width="344" border="0" align="center">
+  <tr>
+    <td colspan="2"><div align="center">
+      <hr width="100%" size="1" color="#FE6702">
+    </div></td>
+  </tr>
+  <tr>
+    <td width="87" bgcolor="#CC99CC"><div align="right">ISBN:</div></td>
+    <td width="247"><div align="left">
+      <input  name="isbn" type="text" style=width:165pt; maxlength="50">
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">书名:</div></td>
+    <td><input name="name" type="text" style=width:165pt; maxlength="50"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">作者:</div></td>
+    <td><input name="author" type="text" style=width:165pt; maxlength="50"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">出版社:</div></td>
+    <td><select name="publisher" style=width:165pt; maxlength="50">
+      <option value="">请选择出版社</option>
+      <option value="清华大学出版社">清华大学出版社</option>
+      <option value="电子工业出版社">电子工业出版社</option>
+      <option value="人民邮电出版社">人民邮电出版社</option>
+      <option value="机械工业出版社">机械工业出版社</option>
+      <option value="人民文学出版社">人民文学出版社</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">出版年:</div></td>
+    <td><div align="left">
+      <input name="year" type="text" style=width:165pt; maxlength="50">
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">类别</div></td>
+    <td><select name="catagory" style=width:165pt; maxlength="50">
+      <option value="">请选择类别</option>
+      <option value="计算机">计算机</option>
+      <option value="外语">外语</option>
+      <option value="经管">经管</option>
+      <option value="通信">通信</option>
+      <option value="工业技术">工业技术</option>
+      <option value="法律">法律</option>
+      <option value="建筑">建筑</option>
+      <option value="哲学社科">哲学社科</option>
+      <option value="生活休闲">生活休闲</option>
+      <option value="医学">医学</option>
+        </select></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">简介</div></td>
+    <td><textarea name="abstract" rows="6" style=width:165pt;></textarea></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">库存量:</div></td>
+    <td><div align="left">
+      <input name="amount" type="text" style=width:165pt; maxlength="50">
+    </div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#CC99CC"><div align="right">收藏单位</div></td>
+    <td><select name="stock" size="3" multiple style=width:165pt; maxlength="50">
+      <option value="文科期刊">文科期刊</option>
+      <option value="工具书室">工具书室</option>
+      <option value="流通中文库">流通中文库</option>
+      <option value="西区期刊阅览室">西区期刊阅览室</option>
+      <option value="过刊室">过刊室</option>
+      <option value="理科期刊">理科期刊</option>
+        </select></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="right"></div>      
+    <div align="center">
+      <hr width="100%" size="1" color="#FE6702">
+    </div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="right"></div>      
+    <div align="center">
+      <input type="submit" name="Submit" value="提交">
+    &nbsp;
+    <input type="reset" name="Submit" value="重置">
+    </div></td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

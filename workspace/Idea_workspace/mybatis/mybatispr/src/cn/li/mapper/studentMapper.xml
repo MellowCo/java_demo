@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.li.mapper.StudentMapper">
+
+    <!--<select id="queryStudentById" parameterType="int" resultType="cn.li.entity.Student">-->
+    <select id="queryStudentById" parameterType="int" resultType="Student">
+        select * from student where sno = #{sno}
+    </select>
+
+<!-- 增加学生-->
+    <insert id="addStudent" parameterType="Student" >
+        /* 有多个String->int 需通过 typeHandler 指定转换器 */
+        insert into student values(#{sno},#{sName},#{sAge},#{sDept},#{sSex,typeHandler=cn.li.convert.StudentConvert})
+    </insert>
+
+<!-- 删除学生-->
+    <delete id="delStudentBySno" parameterType="int">
+        delete from student where sno = #{sno}
+    </delete>
+
+<!--   改学生-->
+    <update id="updateStudentBySno" parameterType="cn.li.entity.Student">
+        update student set sname = #{sName} , sage = #{sAge} , sdept = #{sDept} where sno = #{sno}
+    </update>
+
+    <select id="allStudentByHashMap" resultType="HashMap">
+        select sno "no",sname "name" from student
+    </select>
+
+
+<!--    查询所有学生-->
+    <select id="allStudent" resultMap="studentByConvet" >
+        select * from student
+    </select>
+
+    <resultMap id="studentByConvet" type="Student">
+        <id property="sno" column="sno"/>
+        <result property="sName" column="sname" />
+        <result property="sAge" column="sage" />
+        <result property="sDept" column="sdept" />
+        <result property="sSex" column="ssex" javaType="String" jdbcType="INTEGER" typeHandler="cn.li.convert.StudentConvert"/>
+    </resultMap>
+
+    <!--查询学生总数-->
+    <select id="queryStudentCount" resultType="int">
+        select count(*) from student
+    </select>
+
+
+    <!--resultMap:实体类的属性、数据表的字段： 类型、名字不同时（stuno,id）-->
+    <!--注意：当属性名 和字段名 不一致时，除了使用resultMap以外，还可以使用resultType+HashMap:-->
+    <select id="allStudentById" resultMap="studentMap">
+        select * from student
+    </select>
+
+    <resultMap id="studentMap" type="student">
+        <id property="sno" column="id"/>
+        <result property="sName" column="name"/>
+    </resultMap>
+
+    <select id="allStudentByIdHashMap" resultType="student">
+        select id "sno", name "sName",sage,sdept,ssex from student
+    </select>
+
+    <!--根据age或sdept查询student-->
+    <select id="queryStudentByAgeOrSex" resultType="student" parameterType="student">
+        select * from student
+        <where>
+            <if test="sAge != null and sAge != ''">
+                sage = #{sAge}
+            </if>
+
+            <if test="sDept != null and sDept != ''">
+                or sdept = #{sDept}
+            </if>
+        </where>
+    </select>
+
+    <!--查找sno为13 100的studnet-->
+    <select id="queryStudnetBySnoEq" parameterType="ArrayList" resultType="Student">
+        select * from student where sno in
+        <include refid="cn.li.mapper.a.testfor"></include>
+    </select>
+
+    <!-- 一对一关联，业务扩展 -->
+    <select id="queryStudentBussiness" parameterType="int" resultType="StudentBussiness">
+        select * from student,studentcard where sno = #{sno} and student.cardid = studentcard.cardid
+    </select>
+
+    <!-- 一对一关联，resultMap -->
+    <select id="queryStudentOwithO" parameterType="int" resultMap="studnet_card_map">
+        select * from student,studentcard where sno = #{sno} and student.cardid = studentcard.cardid
+    </select>
+
+    <resultMap id="studnet_card_map" type="Student">
+        <id property="sno" column="sno"/>
+        <result property="sName" column="sname" />
+        <result property="sAge" column="sage" />
+
+        <association property="card" javaType="StudentCard">
+            <id property="cardId" column="cardid"/>
+            <result property="cardInfo" column="cardinfo"/>
+        </association>
+
+    </resultMap>
+
+    <!-- 一对多关联，resultMap -->
+    <!-- 查询id g1班的所有学生 -->
+    <select id="queryStudentClass" resultMap="student_class_map" parameterType="int">
+        select * from student s,studentclass c where c.classid = ${value} and s.classid = c.classid
+    </select>
+
+    <resultMap id="student_class_map" type="StudentClass">
+        <id column="classid" property="classId"/>
+        <result property="classname" column="classinfo"/>
+
+        <collection property="students" ofType="Student" >
+            <id property="sno" column="sno"/>
+            <result property="sName" column="sname" />
+            <result property="sAge" column="sage" />
+        </collection>
+    </resultMap>
+
+</mapper>

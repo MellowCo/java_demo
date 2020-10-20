@@ -1,0 +1,16 @@
+ass="jbTestPos"></span></div>
+        <div id="content">
+            <p>Java IO体系结构看似庞大复杂,其实有规律可循,要弄清楚其结构,需要明白两点:</p>
+<p>1. 其对称性质:InputStream 与 OutputStream, Reader 与 Writer,他们分别是一套字节输入-输出,字符输入-输出体系</p>
+<p>2. 原始处理器(适配器)与链接流处理器(装饰器)&nbsp;<br />
+</p>
+<p>其结构图如下:</p>
+<p style="text-align: center"><img src="//files.jb51.net/file_images/article/201705/2017510143717263.png&#63;2017410143744" alt="" /></p>
+<p>Reader-Writer体系&nbsp;<br />
+</p>
+<p style="text-align: center"><img src="//files.jb51.net/file_images/article/201705/2017510143811976.png&#63;2017410143822" alt="" /></p>
+<p><strong>1. 基类<br />
+</strong></p>
+<p>InputStream与OutputStream是所有字节型输入输出流的基抽象类,同时也是适配器(原始流处理器)需要适配的对象,也是装饰器(链接流处理器)装饰对象的基类.<br />
+</p>
+<p><strong>2. 

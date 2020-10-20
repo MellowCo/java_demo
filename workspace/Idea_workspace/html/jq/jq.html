@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq</title>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // $(document).ready(function () {
+        //    alert("one");
+        // });
+        //
+        // jQuery(document).ready(function () {
+        //    alert("two");
+        // });
+        //
+        // $(function () {
+        //     alert("three");
+        // });
+        //
+        // jQuery(function () {
+        //     alert("four");
+        // });
+
+        var nj = jQuery.noConflict();
+        nj(function () {
+           alert("nj");
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

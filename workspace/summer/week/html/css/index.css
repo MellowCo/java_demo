@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+#logo {
+    float: left;
+}
+
+#top_right {
+    float: right;
+}
+
+#top_right > ul {
+    margin-right: 20px;
+}
+
+#top_right li {
+    margin-top: 40px;
+    float: left;
+    font-size: 23px;
+}
+
+.menu {
+    width: 1920px;
+    background-color: #1c3f09;
+    float: left;
+}
+
+.menu li {
+    float: left;
+    text-align: center;
+    width: 7.1%;
+    font-size: 15px;
+    padding: 2px 0;
+    color: white;
+}
+
+.menu li:hover {
+    background-color: #ff635e;
+}
+
+.search {
+    float: right;
+    margin: 5px 30px 5px 0;
+}
+
+.search input {
+    float: left;
+    margin-right: 5px;
+}
+
+.search button {
+    float: left;
+}
+
+.content {
+    width: 1820px;
+    border: 2px black solid;
+    margin: 0 50px;
+    float: left;
+}
+
+.goods {
+    font-size: 100px;
+    border-bottom: 2px black solid;
+}
+
+.computer {
+    font-size: 100px;
+    border-bottom: 2px black solid;
+}
+
+.list_head {
+    margin: 5px 5px;
+    background-color: #bdb98c;
+    border-radius: 10px
+}
+
+.list_head span{
+    font-size: 30px;
+    margin: 10px auto 10px 20px;
+    color: white;
+}
+
+.img_list > div{
+    float: left;
+    margin: 10px 50px 10px 50px;
+}
+
+.img_list img{
+    width: 160px;
+    height: 200px;
+}
+
+.img_list span{
+   text-align: center;
+    width: 160px;
+    display: block;
+}
+
+.foot{
+    float: left;
+    margin: 5px 50px;
+    background-color: #efeedc;
+    width: 1820px;
+}
+
+.imgl > img{
+    float: left;
+    margin-left: 500px;
+    padding: 10px 0 10px 0;
+}
+
+.imgl div{
+    float: right;
+    margin-right: 500px;
+}

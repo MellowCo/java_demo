@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index2</title>
+    <script src="js/jquery-1.12.4.js"></script>
+
+    <script>
+        $(function () {
+
+            $("button").eq(0).click(function () {
+                var $tel = $("#tel").val();
+                console.log("tel:" + $tel);
+                // $.ajax({
+                //     url: "LoginServlet",
+                //     type: "post",
+                //     data: "tel=" + $tel,
+                //     success: function (result) {
+                //         if (result == "true") {
+                //             alert("失败");
+                //         } else {
+                //             alert("成功");
+                //         }
+                //     }
+                // });
+
+                // $.get(
+                //     "LoginServlet",
+                //     "tel=" + $tel,
+                //     function (result) {
+                //         if (result == "true") {
+                //             alert("失败");
+                //         } else {
+                //             alert("成功");
+                //         }
+                //     }
+                // );
+
+                // $.post(
+                //     "LoginServlet",
+                //     "tel=" + $tel,
+                //     function (result) {
+                //         if (result == "true") {
+                //             alert("失败");
+                //         } else {
+                //             alert("成功");
+                //         }
+                //     }
+                // );
+
+                $("#s").load(
+                    "LoginServlet",
+                    "tel=" + $tel
+                );
+
+            });
+
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+
+电话:<input type="text" id="tel"><span id="s"></span>
+<button>提交</button>
+
+</body>
+</html>

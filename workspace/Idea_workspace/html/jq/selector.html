@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selector</title>
+
+    <style>
+        div{
+            height: 100px;
+            width:100px;
+            background-color: blue;
+            margin-left: 20px;
+            float: left;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var $div = $("div:empty");
+            console.log($div);
+
+            var $div2  = $("div:parent");
+            console.log($div2);
+
+            var $div3 = $("div:has('span')");
+            console.log($div3);
+
+            var  $div4 = $("div:contains('div12')");
+            console.log($div4);
+
+            var  $div5 = $("div:contains('div')");
+            console.log($div5);
+        });
+    </script>
+
+</head>
+<body>
+
+<div></div>
+<div>div</div>
+<div>div1234</div>
+<div><span></span></div>
+<div><p></p></div>
+
+
+</body>
+</html>

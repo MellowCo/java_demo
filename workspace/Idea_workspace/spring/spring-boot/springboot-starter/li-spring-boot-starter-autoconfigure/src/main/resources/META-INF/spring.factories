@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.li.spring.boot.starter.autoconfigure.config.MyAutoConfig
+
+

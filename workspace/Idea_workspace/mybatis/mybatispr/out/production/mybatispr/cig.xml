@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 配置数据连接数据   -->
+    <properties resource="db.properties" />
+
+    <!-- 设置mybatis全局参数 -->
+    <!--    <settings>-->
+    <!--        <setting name="cacheEnabled" value="false"/>-->
+    <!--    </settings>-->
+
+
+    <typeAliases>
+        <!-- 设置单个别名  -->
+        <!--  <typeAlias type="cn.li.entity.Person" alias="Person"/>-->
+        <!--  <typeAlias type="cn.li.entity.Student" alias="Student"/>-->
+        <!-- 通过包名设置 -->
+        <package name="cn.li.entity"/>
+    </typeAliases>
+
+    <!--  转换器  -->
+    <typeHandlers>
+        <typeHandler handler="cn.li.convert.StudentConvert" javaType="String" jdbcType="INTEGER"/>
+        <typeHandler handler="cn.li.convert.StringAndInt" javaType="String" jdbcType="INTEGER"/>
+    </typeHandlers>
+
+
+    <environments default="li">
+
+        <environment id="li">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+<!--                <property name="driver" value="com.mysql.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="li1234"/>-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+    <mappers>
+        <mapper resource="cn/li/mapper/studentMapper.xml"/>
+        <mapper resource="cn/li/entity/personMapper.xml"/>
+        <mapper resource="cn/li/mapper/a.xml"/>
+    </mappers>
+</configuration>

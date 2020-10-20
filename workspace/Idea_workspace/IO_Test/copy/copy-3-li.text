@@ -1,0 +1,14 @@
+"javascript:void(0);">快捷导航 <i id="icon" class="sprite arrowRight"></i></a>
+        <div id="navBox" class="nwebNav" style="display: none;">
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4>
+                                        <a rel="nofollow" href="/softs/" target="_blank">软件下载</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/softs/android.html" target="_blank">android</a>
+                                        <a rel="nofollow" href="/softs/mac.html" target="_blank">MAC</a>
+                                        <a rel="nofollow" href="/qudong/" target="_blank">驱动下载</a>
+                                        <a rel="nofollow" href="/fonts/" target="_blank">字体下载</a>
+                                        <a rel="nofollow" href="/dll/" 

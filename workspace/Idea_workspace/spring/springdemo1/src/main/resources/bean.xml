@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.li"/>
+
+        <!-- 根据id 找到对应的class 创建对应的类 -->
+    <!-- 第一种方式：使用默认构造函数创建。-->
+    <!-- 在spring的配置文件中使用bean标签，配以id和class属性之后，且没有其他属性和标签时。-->
+    <!--采用的就是默认构造函数创建bean对象，此时如果类中没有默认构造函数，则对象无法创建。-->
+    <!--<bean class="com.li.dao.impl.UserDaoImpl" id="userDao" scope="prototype"></bean>-->
+
+    <!--第二种方式-->
+    <!-- 通过调用其他类的方法，创建userDao对象，非静态方法 -->
+    <!-- 使用普通工厂中的方法创建对象（使用某个类中的方法创建对象，并存入spring容器） -->
+    <!--<bean id="InstanceFactory" class="com.li.factory.InstanceFactory"/>-->
+    <!--<bean id="userDao" factory-bean="InstanceFactory" factory-method="getUserDaoImpl"/>-->
+
+    <!-- 第三种方式：使用工厂中的静态方法创建对象（使用某个类中的静态方法创建对象，并存入spring容器) -->
+    <!-- 通过调用其他类的静态方法，创建userDao对象 -->
+    <!--<bean id="userDao" class="com.li.factory.StaticFactory" factory-method="getUserDao" />-->
+
+ <!--   <bean id="user" class="com.li.entity.User">
+        <constructor-arg name="name" value="李"></constructor-arg>
+        <constructor-arg name="age" value="15"></constructor-arg>
+        <constructor-arg name="bir" ref="now"></constructor-arg>
+    </bean>-->
+
+    <!--<bean id="user" class="com.li.entity.User" p:age="12" p:name="ls" p:bir-ref="now"></bean>-->
+
+    <!--<bean id="user" class="com.li.entity.User">-->
+    <!--    <property name="name" value="ls"/>-->
+    <!--    <property name="age" value="12" />-->
+    <!--    <property name="bir" ref="bir"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="bir" class="java.util.Date"></bean>-->
+
+
+
+    <!--<bean id="person" class="com.li.entity.Person" autowire="byName">-->
+    <!--    <property name="name" value="li"/>-->
+    <!--    <property name="age" value="14"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="myList" class="com.li.entity.MyList">-->
+    <!--    <property name="myArray">-->
+    <!--        <array>-->
+    <!--            <value>12</value>-->
+    <!--            <value>23</value>-->
+    <!--            <value>44</value>-->
+    <!--        </array>-->
+    <!--    </property>-->
+
+    <!--    <property name="myList">-->
+    <!--        <list>-->
+    <!--            <value>aa</value>-->
+    <!--            <value>aasd</value>-->
+    <!--            <value>asdas</value>-->
+    <!--        </list>-->
+    <!--    </property>-->
+
+    <!--    <property name="mySet">-->
+    <!--        <set>-->
+    <!--            <value>asdasd</value>-->
+    <!--            <value>asdasasdd</value>-->
+    <!--            <value>asd</value>-->
+    <!--        </set>-->
+    <!--    </property>-->
+
+    <!--    <property name="myMap">-->
+    <!--        <map>-->
+    <!--            <entry key="a" value="kk"/>-->
+    <!--            <entry key="g" value="kk"/>-->
+    <!--            <entry key="d">-->
+    <!--                <value>sdas</value>-->
+    <!--            </entry>-->
+    <!--        </map>-->
+    <!--    </property>-->
+
+    <!--    <property name="pros">-->
+    <!--        <props>-->
+    <!--            <prop key="a">dsd</prop>-->
+    <!--            <prop key="b">ddsdd</prop>-->
+    <!--        </props>-->
+    <!--    </property>-->
+    <!--</bean>-->
+
+</beans>

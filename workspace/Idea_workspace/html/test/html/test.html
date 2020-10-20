@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #nav {
+            width: 500px;
+            background: skyblue;
+            text-align: center;
+            margin: 10px auto;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+
+<table border="1" align="center" id="ta">
+    <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>sex</th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>li</td>
+        <td>12</td>
+        <td>men</td>
+        <td><a href="a.html">delete</a></td>
+    </tr>
+
+    <tr>
+        <td>wang</td>
+        <td>12</td>
+        <td>men</td>
+        <td><a href="a.html">delete</a></td>
+    </tr>
+
+    <tr>
+        <td>aa</td>
+        <td>12</td>
+        <td>women</td>
+        <td><a href="#">delete</a></td>
+    </tr>
+</table>
+
+<div id="nav">
+    信息 <br>
+    name:<input type="text" id="uname"><br>
+    age:<input type="text" id="uage"><br>
+    sex:<input type="text" id="usex"><br>
+    <!--<button id="submit">submit</button>-->
+    <input type="submit" value="tijiao" id="submit">
+</div>
+
+<script type="text/javascript">
+    var a = document.getElementsByTagName("a");
+
+    for (var b in a) {
+        a[b].onclick = function () {
+            var tr = this.parentNode.parentNode;
+            tr.parentNode.removeChild(tr);
+            return false;
+        };
+    }
+
+    var sub = document.getElementById("submit");
+
+    sub.onclick = function () {
+        var name = document.getElementById("uname").value;
+        var age = document.getElementById("uage").value;
+        var sex = document.getElementById("usex").value;
+
+        var ta = document.getElementById("ta");
+        ta.innerHTML += " <tr>\n" +
+            "        <td>"+name+"</td>\n" +
+            "        <td>"+ age+"</td>\n" +
+            "        <td>"+ sex+"</td>\n" +
+            "        <td><a href=\"#\">delete</a></td>\n" +
+            "    </tr>";
+
+    };
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouse</title>
+
+    <style>
+        #z{
+            width: 100px;
+            height: 100px;
+            background: blueviolet;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="x" style="width: 200px;background: skyblue;">a</div>
+<div id="y" style="width: 200px"> </div>
+<div id="z" > </div>
+
+
+<script type="text/javascript">
+    var x = document.getElementById("x");
+    var y = document.getElementById("y");
+
+    x.onmousemove = function (e) {
+      y.innerHTML = e.clientX+"--"+e.clientY;
+    };
+
+    var z = document.getElementById("z");
+
+    z.onmousemove = function (ev) {
+
+        z.style.left = ev.clientX +"px";
+        z.style.top = ev.clientY + "px";
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+           //设置样式
+            $("div").css("width", "100px");
+            $("div").css("height", "100px");
+            $("div").css("background", "red");
+
+            //链式设置样式
+            //大于3个，建议分开
+            $("div").css("width", "100px").css("height", "100px").css("background", "blue");
+
+            //批量设置样式
+            $("div").css({
+                width:"100px",
+                height:"100px",
+                background:"red"
+            });
+
+            //获取样式
+            console.log($("div").css("width"));
+
+            //获取元素的width
+            console.log($("div").width());
+            //设置元素的width
+            $("div").width(200);
+            $("div").width("400px");
+
+        });
+
+    </script>
+</head>
+<body>
+<div></div>
+
+</body>
+</html>

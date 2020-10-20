@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" name="items">a
+<input type="checkbox" name="items">b
+<input type="checkbox" name="items">c
+<input type="checkbox" name="items">d
+<br>
+<input type="button" value="全选" id="selectAll" onclick="selectAll()">
+<input type="button" value="全不选" id="notSelectAll" onclick="notSelectAll()">
+<input type="button" value="反选" id="fan" onclick="fan()">
+
+<br>
+
+<ul id="A">A
+    <li>a</li>
+    <li id="b">b</li>
+    <li>c</li>
+</ul>
+<button id="but">创建</button>
+<button id="and">插入</button>
+<button id="ton">替换</button>
+
+
+<script type="text/javascript">
+    var a = document.getElementsByName("items");
+
+    function selectAll() {
+        for (var b in a) {
+            a[b].checked = true;
+        }
+    }
+
+    function notSelectAll() {
+        for (var b in a) {
+            a[b].checked = false;
+        }
+    }
+
+    function fan() {
+        for (var b in a) {
+            a[b].checked = a[b].checked !== true;
+        }
+
+    }
+
+    var but = document.getElementById("but");
+    var and = document.getElementById("and");
+    var ton = document.getElementById("ton");
+
+    but.onclick = function () {
+        var ul = document.getElementById("A");
+        //创建li的元素标签
+        var newEle = document.createElement("li");
+        //创建一个文本节点
+        var newTex = document.createTextNode("li");
+        //将文本节点加入到 元素标签中
+        newEle.appendChild(newTex);
+        //将新创建的标签加入到ul中
+        ul.appendChild(newEle);
+
+        //也可以用 innerHTML 增加标签
+        ul.innerHTML += "<li>wang</li>";
+    };
+
+    and.onclick = function () {
+        var ul = document.getElementById("A");
+        var b = document.getElementById("b");
+
+        var newNode = document.createElement("li");
+        newNode.appendChild(document.createTextNode("ccc"));
+        //在指定的子节点前 插入新创建的节点(新节点，指定节点)
+        ul.insertBefore(newNode, b);
+    };
+
+    ton.onclick = function () {
+        var ul = document.getElementById("A");
+        var b = document.getElementById("b");
+
+        var newNode = document.createElement("li");
+        newNode.appendChild(document.createTextNode("ddddd"));
+        //替换指定的子节点(新节点，替换的节点)
+        ul.replaceChild(newNode, b);
+
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+spring:
+  # \u914D\u7F6E\u6570\u636E\u5E93
+  datasource:
+    username: root
+    password: li1234
+    url: jdbc:mysql://localhost:3306/cache?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+logging:
+  level:
+    com.li.springboot.security.mapper: debug

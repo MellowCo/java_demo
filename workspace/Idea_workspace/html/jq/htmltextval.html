@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+
+    </style>
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var button = $("button");
+            var div = $("div");
+            var input = $("input");
+
+            button[0].onclick = function () {
+                //添加html
+                div.html("Hello <b>world</b>");
+            };
+            button[1].onclick = function () {
+                //获取html
+                console.log(div.html());
+            };
+            button[2].onclick = function () {
+                div.text("Hello <b>world</b>");
+            };
+            button[3].onclick = function () {
+                console.log(div.text());
+            };
+            button[4].onclick = function () {
+                input.val("input");
+            };
+            button[5].onclick = function () {
+                console.log(input.val());
+            };
+
+        });
+
+    </script>
+
+</head>
+<body>
+<button>添加html</button>
+<button>获取html</button>
+<button>添加text</button>
+<button>获取text</button>
+<button>添加value</button>
+<button>获取value</button>
+
+<div></div>
+<input type="text">
+</body>
+</html>

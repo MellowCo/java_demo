@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员订单列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <!--通过thymeleaf 导入公共片段-->
+    <div th:replace="commons/commons.html :: head"></div>
+</head>
+</head>
+
+<body>
+<!--<div class="x-nav">-->
+<!--            <span class="layui-breadcrumb">-->
+<!--                <a href="CarServlet">首页</a>-->
+<!--                 <a><cite>订单列表</cite></a>-->
+<!--            </span>-->
+<!--    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"-->
+<!--       onclick="location.reload()" title="刷新">-->
+<!--        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>-->
+<!--    </a>-->
+<!--</div>-->
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+
+                <div class="layui-card-body ">
+                    <div class="demoTable">
+
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" name="cname" placeholder="请输入车名" id="cname" autocomplete="off"
+                                   value=""
+                                   class="layui-input">
+                        </div>
+
+                        <div class="layui-inline layui-show-xs-block">
+                            <input type="text" name="crent" id="crent" placeholder="请输入租金" autocomplete="off"
+                                   value=""
+                                   class="layui-input">
+                        </div>
+
+                        <div class="layui-input-inline layui-show-xs-block layui-form layui-col-space5">
+                            <select name="status" id="status">
+                                <option value="" selected>订单状态</option>
+                                <option value="1">租赁中</option>
+                                <option value="-1">已完成</option>
+                            </select>
+                        </div>
+
+                        <button class="layui-btn" data-type="reload">搜索</button>
+                    </div>
+                </div>
+
+
+                <table class="layui-hide" id="test" lay-filter="test"></table>
+
+
+                <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-xs" lay-event="up" value="{{d.uid}}">上架</a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="down" value="{{d.uid}}">下架</a>
+                </script>
+
+                <!--表格 end-->
+
+                <script type="text/html" id="statusBut">
+                    {{# if (d.status === -1) { }}
+                    <button type="button" class="layui-btn layui-btn-radius ">已完成</button>
+                    {{# } else if(d.status === 1) { }}
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">租赁中</button>
+                    {{# } }}
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    layui.use('table', function () {
+
+        var table = layui.table
+            , form = layui.form;
+
+        table.render({
+            elem: '#test'
+            , url: '/admin/order'
+            , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                , layEvent: 'LAYTABLE_TIPS'
+                , icon: 'layui-icon-tips'
+            }]
+            , title: '用户数据表'
+            , id: 'carTable'
+            , cellMinWidth: 80
+            , cols: [
+                [
+                    {type: 'checkbox', fixed: 'left'}
+                    , {field: 'oid', title: '订单号', fixed: 'left', unresize: true, sort: true}
+                    , {field: 'cname', title: '车名', edit: 'text', sort: true}
+                    , {field: 'uid', title: '用户id', edit: 'text', sort: true}
+                    , {field: 'crent', title: '租金', sort: true, width: 80}
+                    , {field: 'status', title: '车辆状态', templet: '#statusBut', align: 'center', width: 185}
+                    , {field: 'takeTime', title: '取车时间', sort: true}
+                    , {field: 'getTime', title: '还车时间'}
+                ]
+            ]
+            , page: true
+        });
+
+        //搜索
+        var $ = layui.$, active = {
+            reload: function () {
+                var cname = $('#cname').val();
+                var crent = $('#crent').val();
+                var status = $('#status').val();
+                console.log(cname)
+
+                //执行重载
+                table.reload('carTable', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        cname: cname,
+                        crent: crent,
+                        status: status
+                    }
+                }, 'data');
+            }
+        };
+
+
+        //刷新当前页
+        function reloadCur(val) {
+            //执行重载
+            table.reload('carTable', {
+                page: {
+                    curr: val //重新从第 1 页开始
+                }
+            }, 'data');
+        }
+
+        //当前页
+        var cur = $(".layui-laypage-em").next().html();
+
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+    });
+</script>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="commons/commos :: commons_head(~{::title})">
+    <title>员工列表</title>
+</head>
+
+<body>
+<!--topbar-->
+<div th:replace="commons/commos :: #topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--sidebar-->
+        <div th:replace="commons/commos :: sidebar(uri='emps')"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>Section title</h2>
+            <a th:href="@{/emp}" class="btn btn-sm btn-success">添加</a>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>lastName</th>
+                        <th>email</th>
+                        <th>gender</th>
+                        <th>department</th>
+                        <th>birth</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="emp : ${emps}">
+                        <td th:text="*{emp.id}"></td>
+                        <td th:text="*{emp.lastName}"></td>
+                        <td th:text="*{emp.email}"></td>
+                        <td th:text="*{emp.gender == 1} ? '男' : '女'"></td>
+                        <td th:text="*{emp.department.departmentName}"></td>
+                        <td th:text="*{#dates.format(emp.birth, 'dd/MMM/yyyy HH:mm')}"></td>
+                        <td>
+                            <a th:href="@{emp/{id}(id=${emp.id})}" class="btn btn-sm btn-primary">编辑</a>
+                            <button th:attr="uri=@{emp/{id}(id=${emp.id})}" class="btn-sm btn btn-danger" id="del">删除
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+
+<form id="del_form" method="post">
+    <input type="hidden" name="_method" value="delete">
+</form>
+
+</body>
+
+<script>
+    $(function () {
+        $("#del").click(function () {
+            console.log($("#del").attr("uri"));
+            $("#del_form").attr("action", $("#del").attr("uri")).submit();
+        });
+    });
+</script>
+
+</html>

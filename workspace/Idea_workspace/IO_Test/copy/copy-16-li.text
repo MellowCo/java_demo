@@ -1,0 +1,16 @@
+原始流处理器</strong><br />
+</p>
+<p>原始流处理器接收Byte数组对象,String对象,FileDescriptor对象将其适配成InputStream,以供其他装饰器使用,他们都继承自InputStream 包括如下几个:<br />
+</p>
+<p>ByteArrayInputStream: 接收Byte数组为流源,为多线程通信提供缓冲区操作功能<br />
+</p>
+<p>FileInputStream: 接收一个File作为流源,用于文件的读取<br />
+</p>
+<p>PipedInputStream: 接收一个PipedOutputStream,与PipedOutputStream配合作为管道使用<br />
+</p>
+<p>StringBufferInputStream: 接收一个String作为流的源(已弃用)&nbsp;<br />
+</p>
+<p><strong>3. 链接流处理器</strong></p>
+<p>链接流处理器可以接收另一个流处理器(InputStream,包括链接流处理器和原始流处理器)作为源,并对其功能进行扩展,所以说他们是装饰器.<br />
+</p>
+<p>1) FilterInputStream继承自InputStream,是所有装饰器的父类,FilterInputStream内部也包含一个InputStream,这个InputStream就是被装�

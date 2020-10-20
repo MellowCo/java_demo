@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //构造函数
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        //想对象中添加方法或者属性
+        Person.prototype.sayName=function (){
+            return this.name;
+        };
+
+        //重写toString方法
+        Person.prototype.toString = function () {
+            return "[Person:" + this.name + "," + this.age + "," + this.sex + "]";
+        };
+
+
+        //创建一个Person对象
+        var li = new Person("li", 12, "man");
+        //创建的对象中添加方法或者属性
+        li.toString =function () {
+            return "[Li:" + this.name + "," + this.age + "," + this.sex + "]";
+        };
+        console.log(li.toString());
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

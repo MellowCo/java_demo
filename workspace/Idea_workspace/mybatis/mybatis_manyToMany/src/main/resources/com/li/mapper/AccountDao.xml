@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.mapper.AccountDao">
+
+    <!--<resultMap id="AccountMap" type="account">
+
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+
+        <association property="user" javaType="user">
+            <id property="id" column="uid"></id>
+            <result column="username" property="username"/>
+            <result column="birthday" property="birthday"/>
+            <result column="sex" property="sex"/>
+            <result column="address" property="address"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="AccountMap">
+        select a.*,u.username,u.birthday,u.sex,u.address from account a,user u where u.id = a.UID;
+    </select>-->
+
+
+    <resultMap id="AccountMap" type="account">
+
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="money" column="money"/>
+        <association property="user" select="com.li.mapper.UserDao.findById" column="uid" fetchType="lazy"></association>
+    </resultMap>
+
+    <select id="findAll" resultMap="AccountMap">
+        select * from account
+    </select>
+
+    <select id="findByUid" resultType="account">
+        select * from account where uid = #{uid}
+    </select>
+
+</mapper>

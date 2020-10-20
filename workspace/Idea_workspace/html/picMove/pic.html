@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*设置内容区*/
+        #content {
+            width: 520px;
+            height: 353px;
+            margin: 50px auto;
+            background-color: skyblue;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /*去除 ul 格式*/
+        #content ul {
+            list-style: none;
+            width: 2600px;
+            position: absolute;
+            left: 0;
+        }
+
+        /*设置li浮动*/
+        #content li {
+            float: left;
+            margin: 10px;
+        }
+
+        /*设置a的位置*/
+        #foot{
+            position: absolute;
+            bottom: 20px;
+        }
+
+
+        #foot a {
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin: 0 5px;
+        }
+
+
+        #foot a:hover{
+            background-color: skyblue;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            //获取ul
+            var imgList = document.getElementById("imgList");
+            //动态设置ul的宽度
+            var img = document.getElementsByTagName("img");
+            imgList.style.width = img.length * 520 + "px";
+
+            //设置a标签居中
+            var aList = document.getElementsByTagName("a");
+            var foot = document.getElementById("foot");
+
+            foot.style.left = (520 - 25 * aList.length) / 2 + "px";
+
+            setA(0);
+            //为a标签绑定事件
+           for (var i = 0;i < aList.length;i++){
+                aList[i].num = i;
+                aList[i].onclick = function () {
+                    clearInterval(autochange);
+                    setA(this.num);
+                    // imgList.style.left = -520 * this.num + "px";
+                    move(imgList,-520 * this.num,100,"left",auto(this.num));
+                }
+           }
+
+           //设置选中的a标签颜色
+            function setA(a){
+                for (var i = 0;i < aList.length;i++){
+                   aList[i].style.backgroundColor = "";
+               }
+               aList[a].style.backgroundColor = "skyblue";
+            }
+
+
+           //move函数
+            /*
+                obj:移动的目标
+                target:移动后的位置
+                speed:移动的速度
+                att:目标改变的属性
+
+             */
+            function move(obj,target,speed,att,callback) {
+                clearInterval(obj.time);
+                //获取当前的left
+                var current = parseInt(getComputedStyle(obj,null)[att]);
+                //比较 当前 和 目标 的差距，确定移动方向
+                if(current > target){
+                    speed = -speed;
+                }
+
+                obj.time = setInterval(function () {
+                        //动态获取移动的left
+                        var oldLeft = parseInt(getComputedStyle(obj,null)[att]);
+                        var newLeft =  oldLeft + speed;
+
+                        //防止越界
+                        if(speed > 0 && newLeft > target || speed < 0 && newLeft < target){
+                            newLeft = target;
+                        }
+
+                        obj.style[att] = newLeft + "px";
+
+                        //到达位置，停止定时器
+                        if (newLeft == target){
+                            clearInterval(obj.time);
+                            setA(target/-520);
+                            callback();
+                        }
+                },30);
+
+            }
+
+
+
+
+            var autochange;
+           var auto = function(t){
+               var flag = true;
+			   
+               autochange = setInterval(function () {
+
+                   if(flag){
+                       //反向
+                       if (t == img.length-2){
+                           flag = false;
+                           return;
+                       }
+					  
+                       move(imgList,-520 * ++t,20,"left",function () {
+                          
+                       });
+					    //alert(t);	
+                   }else{
+                       //正向
+                       if (t == 0){
+                           flag = true;
+                           return;
+                       }
+                       move(imgList,-520 * --t,20,"left",function () {
+                        						 						 
+                       });
+					   // alert(t);	
+                   }
+               },2000);
+           };
+
+            auto(0);
+
+        };
+    </script>
+
+</head>
+<body>
+<div id="content">
+    <ul id="imgList">
+        <li><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+        <li><img src="img/5.jpg" alt=""></li>
+    </ul>
+
+    <div id="foot">
+        <a href="javascript:;" id="one"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+</div>
+
+
+</body>
+</html>

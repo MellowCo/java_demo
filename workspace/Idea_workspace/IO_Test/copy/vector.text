@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta name="applicable-device" content="pc">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<title>Java IO流体系继承结构图_动力节点Java学院整理_java_脚本之家</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="keywords" content="io流,结构图,java,io结构图" />
+<meta name="description" content="这篇文章主要介绍了Java IO流体系继承结构图,非常不错，具有参考借鉴价值，需要的朋友可以参考下" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.jb51.net/article/113442.htm" />
+<meta http-equiv="mobile-agent" content="format=html5; url=https://m.jb51.net/article/113442.htm" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.jb51.net/article/113442.htm" />
+<script type="text/javascript">
+var tougao="mrr",lmname="java",suoyin="no";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "https://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<meta name="referrer" content="always">
+<link type="text/css" href="/skin/2018/css/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2018/css/common.css" rel="stylesheet" />
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/skin/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+</script>
+<script type=text/javascript src="/js/function.js"></script> 
+</head>
+<body>
+<!--topTools Start -->
+<div class="topTools">
+    <div class="wrap clear_fix">
+		<div class="topToolsLeft">
+			<a href="/" target="_blank">脚本之家</a>
+			<a href="http://s.jb51.net" target="_blank" rel="nofollow">服务器常用软件</a>
+		</div>
+		<div class="right">
+			<ul>
+				<li><i class="sprite md left"></i><a target="_blank" href="https://m.jb51.net/" rel="nofollow">手机版</a></li>
+				<li><i class="sprite tg left"></i><a href="http://tougao.jb51.net" rel="nofollow" target="_blank">投稿中心</a></li>
+				<li id="wxHide"><i class="sprite wx left"></i><a href="javascript:void(0)" target="_blank">关注微信</a>
+					<div id="wxShow" class="wxHide_box"><img src="//files.jb51.net/skin/2018/images/erwm.jpg" alt="扫一扫" width="84" hight="84" data-baiduimageplus-ignore></div>
+				</li>
+			</ul>
+			<!--快捷导航 开始 -->
+			<div class="text_d right" id="navHide">
+        <a rel="nofollow" href="javascript:void(0);">快捷导航 <i id="icon" class="sprite arrowRight"></i></a>
+        <div id="navBox" class="nwebNav" style="display: none;">
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4>
+                                        <a rel="nofollow" href="/softs/" target="_blank">软件下载</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/softs/android.html" target="_blank">android</a>
+                                        <a rel="nofollow" href="/softs/mac.html" target="_blank">MAC</a>
+                                        <a rel="nofollow" href="/qudong/" target="_blank">驱动下载</a>
+                                        <a rel="nofollow" href="/fonts/" target="_blank">字体下载</a>
+                                        <a rel="nofollow" href="/dll/" target="_blank">DLL</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4>
+                                        <a rel="nofollow" href="/codes/" target="_blank">源码下载</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/codes/php.html" target="_blank">PHP</a>
+                                        <a rel="nofollow" href="/codes/aspnet.html" target="_blank">ASP.NET</a>
+                                        <a rel="nofollow" href="/codes/asp.html" target="_blank">ASP</a>
+                                        <a rel="nofollow" href="/codes/jsp.html" target="_blank">JSP</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="/list/index_84.htm" target="_blank">软件编程</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/list/list_85_1.htm" target="_blank">C#</a>
+                                        <a rel="nofollow" href="/list/list_134_1.htm" target="_blank">JAVA</a>
+                                        <a rel="nofollow" href="/list/list_159_1.htm" target="_blank">C 语言</a>
+                                        <a rel="nofollow" href="/list/list_206_1.htm" target="_blank">Delphi</a>
+                                        <a rel="nofollow" href="/list/list_233_1.htm" target="_blank">Android</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="/list/index_1.htm" target="_blank">网络编程</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/list/list_15_1.htm" target="_blank">PHP</a>
+                                        <a rel="nofollow" href="/list/list_21_1.htm" target="_blank">ASP.NET</a>
+                                        <a rel="nofollow" href="/list/list_2_1.htm" target="_blank">ASP</a>
+                                        <a rel="nofollow" href="/list/list_3_1.htm" target="_blank">JavaScript</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="http://tools.jb51.net/" target="_blank">在线工具</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a>
+                                        <a rel="nofollow" href="http://tools.jb51.net/tools/js_geshihua.asp" target="_blank">JS格式化</a>
+                                        <a rel="nofollow" href="/tools/html-js.htm" target="_blank" rel="nofollow">Html转化为Js</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="/list/index_104.htm" target="_blank">数据库</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/list/list_112_1.htm" target="_blank">MYSQL</a>
+                                        <a rel="nofollow" href="/list/list_113_1.htm" target="_blank">MSSQL</a>
+                                        <a rel="nofollow" href="/list/list_154_1.htm" target="_blank">oracle</a>
+                                        <a rel="nofollow" href="/list/list_155_1.htm" target="_blank">DB2</a>
+                                        <a rel="nofollow" href="/list/list_252_1.htm" target="_blank">MARIADB</a></dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="/cms/" target="_blank">CMS</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/cms/list411_1.html" target="_blank">PHPCMS</a>
+                                        <a rel="nofollow" href="/cms/list408_1.html" target="_blank">DEDECMS</a>
+                                        <a rel="nofollow" href="/cms/list578_1.html" target="_blank">帝国CMS</a>
+                                        <a rel="nofollow" href="/cms/list419_1.html" target="_blank">WordPress</a>
+                                </dd>
+                        </dl>
+                </div>
+                <div class="ndealList clear_fix">
+                        <div class="navTitle left">
+                                <h4><a rel="nofollow" href="javascript:0;" target="_blank">常用工具</a></h4>
+                        </div>
+                        <dl class="right">
+                                <dd>
+                                        <a rel="nofollow" href="/zt/phphuanjing.html" target="_blank">PHP开发工具</a>
+                                        <a rel="nofollow" href="/zt/python.html" target="_blank">python</a>
+                                        <a rel="nofollow" href="/zt/photoshopxz.html" target="_blank">Photoshop</a>
+                                        <a rel="nofollow" href="/bibei/win/index.html" target="_blank">必备软件</a></dd>
+                        </dl>
+                </div>
+        </div>
+</div>
+			<!--快捷导航 结束 -->
+		</div>
+    </div>
+</div>
+<!--topTools end -->
+
+<div class="header">
+	<!-- Logo start -->
+	<div class="wrap">
+		<div class="mtb10 clearfix">
+		  <div class="logo"><a href="//www.jb51.net/"><img src="//www.jb51.net/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+		  <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+		  <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+		</div>
+	</div>
+	<!--Logo end -->
+	
+	<!-- 导航开始 -->
+	<div class="nav_top clearfix">
+		<ul>
+			<li><a href="/">网站首页</a></li>
+			<li><a href="/web/">网页制作</a></li>
+			<li><a href="/list/index_1.htm">网络编程</a></li>
+			<li><a href="/list/index_96.htm">脚本专栏</a></li>
+			<li><a href="/jiaoben/">脚本下载</a></li>
+			<li><a href="/list/index_104.htm">数据库</a></li>
+			<li><a href="/list/list_82_1.htm">服务器</a></li>
+			<li><a href="/books/">电子书籍</a></li>
+			<li><a href="/os/">操作系统</a></li>
+			<li><a href="/yunying/">网站运营</a></li>
+			<li><p><i>其它</i><span>
+				<a href="/pingmian/">平面设计</a>
+				<a href="/media/">媒体动画</a>
+				<a href="/diannaojichu/">电脑基础</a>
+				<a href="/hardware/">硬件教程</a>
+				<a href="/hack/">网络安全</a>	
+			</span></p></li>
+		</ul>
+	</div>
+	<!--导航结束-->
+</div>
+
+<!-- 二级菜单开始 -->
+<div class="wrap">
+	<div class="subnav clearfix">
+<ul><li><a href='/list/list_85_1.htm' title="C#教程">C#教程</a></li>
+<li><a href='/list/list_93_1.htm' title="vb">vb</a></li>
+<li><a href='/list/list_205_1.htm' title="vb.net">vb.net</a></li>
+<li><a href='/list/list_159_1.htm' title="C 语言">C 语言</a></li>
+<li><a href='/list/list_134_1.htm' title="Java编程">Java编程</a></li>
+<li><a href='/list/list_206_1.htm' title="Delphi">Delphi</a></li>
+<li><a href='/list/list_207_1.htm' title="java">java</a></li>
+<li><a href='/list/list_233_1.htm' title="Android">Android</a></li>
+<li><a href='/list/list_238_1.htm' title="IOS">IOS</a></li>
+<li><a href='/list/list_244_1.htm' title="Swift">Swift</a></li>
+<li><a href='/list/list_250_1.htm' title="Scala">Scala</a></li>
+<li><a href='/list/list_254_1.htm' title="易语言">易语言</a></li>
+<li><a href='/list/list_188_1.htm' title="其它相关">其它相关</a></li>
+</ul>
+	</div>
+</div>
+<!-- 二级菜单结束 -->	
+
+<div class="main mb10 clearfix">
+	<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+</div>
+<div class="main clearfix">
+	<div class="NavBar clearfix ptb10">
+		<div class="fl w690">
+			<div class="box mb15 mt10"><i class="icon"></i>您的位置：<a href='/'>首页</a> → <a href="/list/index_84.htm" title="软件编程">软件编程</a> → <a href="/list/list_207_1.htm" title="java">java</a> → 正文内容 java io流体系继承结构图</div>
+		</div>
+		<div class="fr w300"><div class="search">
+		<form action="/do/search.php" target="_blank">
+			<input type="hidden" name="s" value="10520733385329581432">
+			<input type="hidden" name="ie" value="gbk">
+			<input type="text" name="q" class="key_input" placeholder="请输入关键词">
+			<input type="submit" value=" " class="c_btn">
+		</form></div>
+		</div>
+	</div>
+</div>
+<!--content Star -->
+<div id="contents">
+ <!--share start-->
+ <div id="right-share">
+	<div class="right-share jb-share" id="jb-share">
+		<a class="rshare-weixin" title="">微信</a>
+        <a rel="nofollow" class="rshare-qzone" target="_blank" href="//tougao.jb51.net/" title="投稿">投稿</a>
+		<a rel="nofollow" class="rshare-sqq" target="_blank" href="http://shequ.jb51.net/" title="交流社区">交流社区</a>
+		<a rel="nofollow" class="rshare-tsina" target="_blank" href="http://tools.jb51.net/" title="在线工具">在线工具</a>
+	</div>
+	<a class="rshare-top" onClick="javascript:;"></a>
+			
+	<div id="weixin-code" class="hide">
+	<div class="popup_weixin_head"><p>关注微信公众号</p> 
+	<div id="code"><img src="//files.jb51.net/skin/2018/images/erwm.jpg" alt="扫一扫" width="100" hight="100"></div>
+	</div>
+	</div>	
+ </div>
+<!--share end-->
+
+ <div class="main clearfix bgf">
+      <div class="w750 fl">
+      <div class="article-content border">
+      <div class="title">
+            <h1 class="YaHei">Java IO流体系继承结构图_动力节点Java学院整理</h1>
+            <p> &nbsp;更新时间：2017年05月10日 14:40:47 &nbsp; 投稿：mrr  &nbsp; <a href="#comments"> <img src="/skin/2018/images/text-message.png" width="15" height="15" /> 我要评论</a> </p>
+        </div>
+        <div class="lbd clearfix"><span id="tit_down" class="jbTestPos"></span></div>
+        <div class="art_desc mt10"><div id="art_demo">这篇文章主要介绍了Java IO流体系继承结构图,非常不错，具有参考借鉴价值，需要的朋友可以参考下</div></div>
+        <div class="lbd clearfix"><span id="art_up" class="jbTestPos"></span></div>
+        <div id="content">
+            <p>Java IO体系结构看似庞大复杂,其实有规律可循,要弄清楚其结构,需要明白两点:</p>
+<p>1. 其对称性质:InputStream 与 OutputStream, Reader 与 Writer,他们分别是一套字节输入-输出,字符输入-输出体系</p>
+<p>2. 原始处理器(适配器)与链接流处理器(装饰器)&nbsp;<br />
+</p>
+<p>其结构图如下:</p>
+<p style="text-align: center"><img src="//files.jb51.net/file_images/article/201705/2017510143717263.png&#63;2017410143744" alt="" /></p>
+<p>Reader-Writer体系&nbsp;<br />
+</p>
+<p style="text-align: center"><img src="//files.jb51.net/file_images/article/201705/2017510143811976.png&#63;2017410143822" alt="" /></p>
+<p><strong>1. 基类<br />
+</strong></p>
+<p>InputStream与OutputStream是所有字节型输入输出流的基抽象类,同时也是适配器(原始流处理器)需要适配的对象,也是装饰器(链接流处理器)装饰对象的基类.<br />
+</p>
+<p><strong>2. 原始流处理器</strong><br />
+</p>
+<p>原始流处理器接收Byte数组对象,String对象,FileDescriptor对象将其适配成InputStream,以供其他装饰器使用,他们都继承自InputStream 包括如下几个:<br />
+</p>
+<p>ByteArrayInputStream: 接收Byte数组为流源,为多线程通信提供缓冲区操作功能<br />
+</p>
+<p>FileInputStream: 接收一个File作为流源,用于文件的读取<br />
+</p>
+<p>PipedInputStream: 接收一个PipedOutputStream,与PipedOutputStream配合作为管道使用<br />
+</p>
+<p>StringBufferInputStream: 接收一个String作为流的源(已弃用)&nbsp;<br />
+</p>
+<p><strong>3. 链接流处理器</strong></p>
+<p>链接流处理器可以接收另一个流处理器(InputStream,包括链接流处理器和原始流处理器)作为源,并对其功能进行扩展,所以说他们是装饰器.<br />
+</p>
+<p>1) FilterInputStream继承自InputStream,是所有装饰器的父类,FilterInputStream内部也包含一个InputStream,这个InputStream就是被装饰类--一个原始流处理器,它包括如下几个子类:<br />
+</p>
+<p>BufferedInputStream: 用来将数据读入内存缓冲区,并从此缓冲区提供数据<br />
+</p>
+<p>DataInputStream: 提供基于多字节的读取方法,可以读取原始数据类型(Byte, Int, Long, Double等等)<br />
+</p>
+<p>LineNumberInputStream:&nbsp; 提供具有行计数功能的流处理器<br />
+</p>
+<p>PushbackInputStream:&nbsp; 提供已读取字节"推回"输入流的功能<br />
+</p>
+<p>2) ObjectInputStream: 可以将使用ObjectOutputStream写入的基本数据和对象进行反串行化<br />
+</p>
+<p>3) SequenceInputStream: 可以合并多个InputStream原始流,依次读取这些合并的原始流&nbsp;<br />
+</p>
+<p>对于OutputStream, Reader, Writer的体系结构也跟InputStream的结构类似<br />
+</p>
+<p>以上所述是小编给大家介绍的Java IO流体系继承结构图_动力节点Java学院整理，希望对大家有所帮助，如果大家有任何疑问请给我留言，小编会及时回复大家的。在此也非常感谢大家对脚本之家网站的支持！</p>
+            
+            <div class="art_xg">
+<h4>您可能感兴趣的文章:</h4><ul><li><a href="/article/120658.htm" title="Java 继承与多态的深入理解" target="_blank">Java 继承与多态的深入理解</a></li><li><a href="/article/117461.htm" title="Java中继承thread类与实现Runnable接口的比较" target="_blank">Java中继承thread类与实现Runnable接口的比较</a></li><li><a href="/article/116648.htm" title="浅谈java继承中是否创建父类对象" target="_blank">浅谈java继承中是否创建父类对象</a></li><li><a href="/article/115613.htm" title="详解java中继承关系类加载顺序问题" target="_blank">详解java中继承关系类加载顺序问题</a></li><li><a href="/article/113929.htm" title="java设计模式—静态代理模式(聚合与继承方式对比)" target="_blank">java设计模式—静态代理模式(聚合与继承方式对比)</a></li><li><a href="/article/112429.htm" title="Java Collections集合继承结构图_动力节点Java学院整理" target="_blank">Java Collections集合继承结构图_动力节点Java学院整理</a></li><li><a href="/article/111223.htm" title="Java 继承方法实例详解" target="_blank">Java 继承方法实例详解</a></li><li><a href="/article/128147.htm" title="浅谈Java继承中的转型及其内存分配" target="_blank">浅谈Java继承中的转型及其内存分配</a></li></ul>
+</div>
+<div class="clearfix">
+<span id="art_bot" class="jbTestPos"></span>
+</div>
+        </div><!--endmain-->
+<div class="tags clearfix">
+	<i class="icon-tag"></i>
+	<ul class="meta-tags items">
+	  <li class="tag item"><a href="http://common.jb51.net/tag/java/1.htm" target="_blank" title="搜索关于java的文章" rel="nofollow">java</a></li>
+<li class="tag item"><a href="http://common.jb51.net/tag/io/1.htm" target="_blank" title="搜索关于io的文章" rel="nofollow">io</a></li>
+<li class="tag item"><a href="http://common.jb51.net/tag/%E6%B5%81/1.htm" target="_blank" title="搜索关于流的文章" rel="nofollow">流</a></li>
+
+	</ul>
+</div>        
+
+<div class="lbd clearfix">
+<span id="art_down" class="jbTestPos"></span>
+</div>
+<div id="shoucang"></div>
+
+<div class="xgcomm clearfix">
+	<h2>相关文章</h2>
+	<ul><li class="lbd clearfix"><span id="art_xg" class="jbTestPos"></span></li><li><div class="item-inner"><a href="/article/122460.htm" title="Java-文件File简单实用方法(分享)" class="img-wrap" target="_blank"> <img alt="Java-文件File简单实用方法(分享)" src="//files.jb51.net/images/xgimg/bcimg0.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/122460.htm" title="Java-文件File简单实用方法(分享)">Java-文件File简单实用方法(分享)</a></p><div class="item-info"><div class="js">下面小编就为大家带来一篇Java-文件File简单实用方法(分享)。小编觉得挺不错的，现在就分享给大家，也给大家做个参考。一起跟随小编过来看看吧</div><span class="lbtn" style="float:right"> 2017-08-08 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/125850.htm" title="详解Java中多线程异常捕获Runnable的实现" class="img-wrap" target="_blank"> <img alt="详解Java中多线程异常捕获Runnable的实现" src="//files.jb51.net/images/xgimg/bcimg1.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/125850.htm" title="详解Java中多线程异常捕获Runnable的实现">详解Java中多线程异常捕获Runnable的实现</a></p><div class="item-info"><div class="js">这篇文章主要介绍了详解Java中多线程异常捕获Runnable的实现的相关资料,希望通过本文能帮助到大家，让大家理解掌握这样的知识，需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-10-10 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/57890.htm" title="java学习笔记之eclipse+tomcat 配置" class="img-wrap" target="_blank"> <img alt="java学习笔记之eclipse+tomcat 配置" src="//files.jb51.net/images/xgimg/bcimg2.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/57890.htm" title="java学习笔记之eclipse+tomcat 配置">java学习笔记之eclipse+tomcat 配置</a></p><div class="item-info"><div class="js">俗话说：工欲善其事必先利其器，既然要学习java，首先把java的开发环境捣鼓一下吧，这里我们来谈谈eclipse+tomcat的配置方法。</div><span class="lbtn" style="float:right"> 2014-11-11 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/127292.htm" title="Java计算程序代码执行时间的方法小结" class="img-wrap" target="_blank"> <img alt="Java计算程序代码执行时间的方法小结" src="//files.jb51.net/images/xgimg/bcimg3.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/127292.htm" title="Java计算程序代码执行时间的方法小结">Java计算程序代码执行时间的方法小结</a></p><div class="item-info"><div class="js">这篇文章主要介绍了Java计算程序代码执行时间的方法,结合实例形式总结分析了java采用毫秒数及纳秒数计算程序运行时间的相关操作技巧,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-11-11 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/137005.htm" title="初识Spring boot监控" class="img-wrap" target="_blank"> <img alt="初识Spring boot监控" src="//files.jb51.net/images/xgimg/bcimg4.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/137005.htm" title="初识Spring boot监控">初识Spring boot监控</a></p><div class="item-info"><div class="js">这篇文章主要介绍了spring boot监控的相关知识,文中给大家介绍了查看监控数据，数据可视化的相关知识，需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2018-03-03 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/131768.htm" title="Spring IO Platform简单介绍" class="img-wrap" target="_blank"> <img alt="Spring IO Platform简单介绍" src="//files.jb51.net/images/xgimg/bcimg5.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/131768.htm" title="Spring IO Platform简单介绍">Spring IO Platform简单介绍</a></p><div class="item-info"><div class="js">这篇文章主要介绍了Spring IO Platform简单介绍，具有一定借鉴价值,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-12-12 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/116037.htm" title="MyBatis一二级缓存" class="img-wrap" target="_blank"> <img alt="MyBatis一二级缓存" src="//files.jb51.net/images/xgimg/bcimg6.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/116037.htm" title="MyBatis一二级缓存">MyBatis一二级缓存</a></p><div class="item-info"><div class="js">这篇文章主要介绍了MyBatis一二级缓存的相关知识，非常不错，具有参考借鉴价值,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-06-06 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/137563.htm" title="springboot+springmvc+mybatis项目整合" class="img-wrap" target="_blank"> <img alt="springboot+springmvc+mybatis项目整合" src="//files.jb51.net/images/xgimg/bcimg7.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/137563.htm" title="springboot+springmvc+mybatis项目整合">springboot+springmvc+mybatis项目整合</a></p><div class="item-info"><div class="js">这篇文章主要为大家详细介绍了springboot+springmvc+mybatis项目的整合，具有一定的参考价值，感兴趣的小伙伴们可以参考一下</div><span class="lbtn" style="float:right"> 2018-04-04 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/80948.htm" title="WebService教程详解（二）" class="img-wrap" target="_blank"> <img alt="WebService教程详解（二）" src="//files.jb51.net/images/xgimg/bcimg8.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/80948.htm" title="WebService教程详解（二）">WebService教程详解（二）</a></p><div class="item-info"><div class="js">这篇文章主要介绍了WebService教程详解（二） 的相关资料,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2016-03-03 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/131802.htm" title="生产消费者模式实现方式和线程安全问题代码示例" class="img-wrap" target="_blank"> <img alt="生产消费者模式实现方式和线程安全问题代码示例" src="//files.jb51.net/images/xgimg/bcimg9.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/131802.htm" title="生产消费者模式实现方式和线程安全问题代码示例">生产消费者模式实现方式和线程安全问题代码示例</a></p><div class="item-info"><div class="js">这篇文章主要介绍了生产消费者模式实现方式和线程安全问题代码示例，具有一定借鉴价值,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-12-12 </span></div></div></div></div></li>
+</ul>
+</div>
+<div class="lbd clearfix mt5">
+<span id="art_down2" class="jbTestPos"></span>
+</div>
+<a href="#comments"></a>
+<div id="comments">
+<H2>最新评论</H2>
+<div class="pd5"><div id="SOHUCS" sid="art_113442"></div></div>
+</div>
+      </div><!--endborder-->
+      </div><!--end fl-->
+      
+<div class="w350 fr">
+<div class="article-right">
+<div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">大家感兴趣的内容</H4>
+<UL class="newsList newList-in">
+<li><EM class="no1">1</EM><a href="/article/46010.htm" title="java使double保留两位小数的多方法 java保留两位小数" target="_blank">java使double保留两位小数的多方</a></li><li><EM class="no2">2</EM><a href="/article/48304.htm" title="JAVA8 十大新特性详解" target="_blank">JAVA8 十大新特性详解</a></li><li><EM class="no3">3</EM><a href="/article/34888.htm" title="java.net.SocketException: Connection reset 解决方法" target="_blank">java.net.SocketException: Conn</a></li><li><EM class="no4">4</EM><a href="/article/47062.htm" title="java写入文件的几种方法分享" target="_blank">java写入文件的几种方法分享</a></li><li><EM class="no5">5</EM><a href="/article/36811.htm" title="Java环境变量的设置方法(图文教程)" target="_blank">Java环境变量的设置方法(图文教程</a></li><li><EM class="no6">6</EM><a href="/article/18146.htm" title="JAVA 十六进制与字符串的转换" target="_blank">JAVA 十六进制与字符串的转换</a></li><li><EM class="no7">7</EM><a href="/article/45660.htm" title="java list用法示例详解" target="_blank">java list用法示例详解</a></li><li><EM class="no8">8</EM><a href="/article/36126.htm" title="java中File类的使用方法" target="_blank">java中File类的使用方法</a></li><li><EM class="no9">9</EM><a href="/article/70543.htm" title="JavaWeb实现文件上传下载功能实例解析" target="_blank">JavaWeb实现文件上传下载功能实例</a></li><li><EM class="no10">10</EM><a href="/article/32652.htm" title="Java中HashMap和TreeMap的区别深入理解" target="_blank">Java中HashMap和TreeMap的区别深</a></li>
+</UL>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">最近更新的内容</H4>
+<UL class="newsListA">
+<li><a href="/article/143792.htm" title="java后台批量下载文件并压缩成zip下载的方法" target="_blank">java后台批量下载文件并压缩成zip下载的方</a></li><li><a href="/article/115736.htm" title="Java新特性之Nashorn_动力节点Java学院整理" target="_blank">Java新特性之Nashorn_动力节点Java学院整</a></li><li><a href="/article/125797.htm" title="Kotlin基本类型自动装箱出现问题解决办法" target="_blank">Kotlin基本类型自动装箱出现问题解决办法</a></li><li><a href="/article/96439.htm" title="MyBatis Oracle 自增序列的实现方法" target="_blank">MyBatis Oracle 自增序列的实现方法</a></li><li><a href="/article/87052.htm" title="mybatis3.3+struts2.3.24+mysql5.1.22开发环境搭建图文教程" target="_blank">mybatis3.3+struts2.3.24+mysql5.1.22开发</a></li><li><a href="/article/117185.htm" title="为什么Java要把字符串设计成不可变的" target="_blank">为什么Java要把字符串设计成不可变的</a></li><li><a href="/article/83860.htm" title="java中struts2实现简单的文件上传与下载" target="_blank">java中struts2实现简单的文件上传与下载</a></li><li><a href="/article/130097.htm" title="Mybatis分页插件PageHelper的配置和简单使用方法(推荐)" target="_blank">Mybatis分页插件PageHelper的配置和简单使</a></li><li><a href="/article/102307.htm" title="java设计模式之外观模式(Facade)" target="_blank">java设计模式之外观模式(Facade)</a></li><li><a href="/article/31445.htm" title="Java的关键字与保留字小结" target="_blank">Java的关键字与保留字小结</a></li>
+</UL>
+</DIV>
+</DIV>   
+<div class="r300 clearfix mt10"><span id="idctu1" class="jbTestPos"></span></div>
+<DIV class="tabTitleBar mt10 bgf borderTblue">
+<DIV class="borderTnone pb10 YaHei">
+<H4 class="blue">常用在线小工具</H4>
+<ul class="newsListA"><span id="bctools" class="jbTestPos"></span></ul>
+</DIV>
+</DIV>
+<div class="r300 clearfix mt10 mb10"><span id="idctu2" class="jbTestPos"></span></div> 
+<div class="rFixedBox">
+<script type="text/javascript">jb51_a_d("jb51xf");</script>
+</div>
+  </div>   
+      
+      </div><!--end fr-->
+      </div>
+</div><!--end content-->
+<div id="footer">
+<div class="main clearfix">
+<p>
+<a rel="nofollow" href="/about.htm" target="_blank">关于我们</a> - 
+<a rel="nofollow" href="/support.htm" target="_blank">广告合作</a> - 
+<a rel="nofollow" href="/linkus.htm" target="_blank">联系我们</a> -  
+<a rel="nofollow" href="/sm.htm" target="_blank">免责声明</a> -  
+<a rel="nofollow" href="/sitemap.htm" target="_blank">网站地图</a> - 
+<a rel="nofollow" href="tencent://message/?uin=461478385&Site=http://www.jb51.net" target="_blank">投诉建议</a> - 
+<a rel="nofollow" href="/up.htm" target="_blank">在线投稿</a>
+</p>
+<p><a rel="nofollow" class="ba" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32031102000137"><img src="https://www.beian.gov.cn/file/ghs.png"/> 苏公网安备 32031102000137号</a>&nbsp;&nbsp;<a href="http://www.miibeian.gov.cn" class="ba" rel="nofollow" target="_blank">苏ICP备14036222号</a></p>
+<p>&copy;CopyRight 2006-2018 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<script type="text/javascript">
+(function(){
+	var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+/*更多导航*/
+$(".nav_top p").hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")});
+
+if (top.location != self.location)top.location=self.location;
+
+var varwindow=$(window);
+$(function(){
+	$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 650 && !$(this).hasClass("nohref")){
+            img.style.width = "650px";
+            img.style.height = "auto";
+            //$(img).removeAttr('height');
+            var aTag = document.createElement('a');
+            aTag.href = img.src;
+			aTag.target="_blank";
+            $(aTag).addClass('bPic')
+            .insertAfter(img).append(img)
+          }
+    });
+	varwindow.scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = varwindow.height();
+        var top = varwindow.scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+344)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			if(parseInt(top) + 340 < h1){
+				$('.rFixedBox').css({'position':'fixed','top': 0});
+			}else{
+				$('.rFixedBox').css({'position':'absolute','top': h1-510});
+			}
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+	   
+	   /*右侧快捷菜单*/
+	   sideFixed();
+    });
+	var ww = varwindow.width();
+	
+	function sideFixed(){
+	var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;
+	var a1 = 550;
+	if(ww>440){
+		if(a1<=scrolltop){
+			$('#right-share').slideDown();
+			}
+		else{
+			$('#right-share').slideUp();
+			}
+		}
+	}
+	$('.rshare-weixin').hover(function(){
+			$('#weixin-code').removeClass('hide');
+		},function(){
+			$('#weixin-code').addClass('hide');
+		});
+	/*二维码*/
+	$('#right-share .rshare-top').on('click',function(){
+        $('html,body').animate({'scrollTop':0},500);
+    });
+/*$(document).ready(function() {
+  $("#content img").unveil();
+});	*/
+
+if(suoyin=="ok"){
+	GenerateContentList();
+}
+
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+});
+var ourl="";
+</script>
+<script type="text/javascript" src='//icws.jb51.net/good/arcts.js'></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="//icws.jb51.net/tongji/tongji.js"></script>
+</div>
+<script type="text/javascript">
+//tu+
+var cpro_id = "u1893014";
+document.write('<scri'+'pt src="//cpro.baidustatic.com/cpro/ui/i.js" type="text/javascript"></s'+'cript>');
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?2f793ca9dd6f4c32488903eed5c7fbcb":"https://jspassport.ssl.qhimg.com/11.0.1.js?2f793ca9dd6f4c32488903eed5c7fbcb";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script> 
+<script type="text/javascript" src="//www.jb51.net/pl.asp?id=113442"></script>
+<script type="application/ld+json">
+        {
+            "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+            "@id": "https://www.jb51.net/article/113442.htm",
+            "appid": "1549322409310619",
+            "title": "Java IO流体系继承结构图_动力节点Java学院整理",
+            "description": "这篇文章主要介绍了Java IO流体系继承结构图,非常不错，具有参考借鉴价值，需要的朋友可以参考下",
+            "pubDate": "2017-05-10T14:40:47",
+			"upDate": "2017-05-10T14:40:47"
+        }
+</script>
+</body>
+</html>
+<!-- published at 2018/9/3 17:57:57By dxycms qq:461478385  -->

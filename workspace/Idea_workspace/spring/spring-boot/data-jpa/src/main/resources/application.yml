@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.1.134:3306/test
+  jpa:
+    hibernate:
+      # 更新或创建数据库结构
+      ddl-auto: update
+    # 控制台显示sql语句
+    show-sql: true
+  main:
+        allow-bean-definition-overriding: true

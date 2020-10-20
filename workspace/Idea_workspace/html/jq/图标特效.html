@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+           $("span").each(function (index,ele) {
+               var url = "url('img/bg.png') 0 " + index * -24 +"px";
+               $(this).css("background", url);
+           });
+
+           $("li").mouseenter(function () {
+               $(this).children("span").stop().animate({
+                    top:-50
+               },500,function () {
+                   $(this).css("top","50px");
+                   $(this).animate({
+                       top:0
+                   },500);
+               });
+           });
+        });
+    </script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    ul{
+        list-style: none;
+        margin: 50px auto;
+        width: 400px;
+        height: 250px;
+        border: 1px black solid;
+    }
+
+    ul>li{
+        float: left;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+
+    ul>li>span{
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background: url("img/bg.png") 0 0;
+        position: relative;
+    }
+
+
+
+</style>
+
+
+
+<body>
+
+<ul>
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+
+    <li>
+        <span></span><p>百度</p>
+    </li>
+</ul>
+
+</body>
+</html>

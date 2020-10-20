@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>piccss</title>
+
+    <style>
+        #two{
+            /*background-color: blue;*/
+            margin-bottom: 100px;
+        }
+
+        .pic{
+            /*在1秒内，以慢速开始和结束的过渡效果*/
+            transition:1s ease-in-out all;
+            /*设置盒子阴影*/
+            box-shadow: 10px 10px 5px #888888;
+        }
+
+        .pic:hover{
+            /*鼠标图片放大1.05倍*/
+            transform: scale(1.05,1.05);
+        }
+
+        #one{
+            height: 100px;
+            width: 200px;
+            /*渐变*/
+            background:linear-gradient(to right,red,blue) ;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="two">
+    <img src="img/1.jpg" alt="" class="pic"/>
+
+    <!--<img src="img/2.jpg" alt="" class="pic"/>-->
+</div>
+
+<div id="one"></div>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <script language="JavaScript" type="text/JavaScript">
+
+    </script>
+</head>
+
+<body>
+<form action="handle.jsp" method="post" name="form1" onSubmit="return mycheck()">
+    <table width="520" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td colspan="2">
+                <div align="center">
+                    <hr width="95%" size="1" color="#FE6702">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">姓名:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <input type="text" name="name" value="" style=width:165pt; maxlength="50">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div align="right">密码:</div>
+            </td>
+            <td><input name="passwd1" type="password" id="passwd1" style=width:165pt; maxlength="50"></td>
+        </tr>
+
+        <tr>
+            <td width="163">
+                <div align="right">性别:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <select name="sex">
+                        <option value="none">未指明</option>
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">Email邮件:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <input type="text" name="email" value="" style=width:165pt; maxlength="50">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">电 话:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <input type="text" name="tel" value="" style=width:165pt; maxlength="50">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">QQ号码:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <input type="text" name="qq" value="" style=width:165px; maxlength="50px">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">入学年份:</div>
+            </td>
+            <td>
+                <div align="left">
+                    <select name="year">
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="right"></div>
+                <div align="center">
+                    <hr width="95%" size="1" color="#FE6702">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">选修科目:<br>
+                    (至少选一门，但可多选)
+                </div>
+            </td>
+            <td>
+                <div align="left">
+                    <select name="subject" size=4 multiple=true style=width:169pt;>
+                        <option value="Java程序设计">Java程序设计</option>
+                        <option value="数据结构">数据结构</option>
+                        <option value="操作系统">操作系统</option>
+                        <option value="微机原理">微机原理</option>
+                        <option value="数据库原理">数据库原理</option>
+                        <option value="vb程序设计">vb程序设计</option>
+                    </select>
+                    <br>
+                    <br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="163">
+                <div align="right">个人简介 : <br>
+                    (不多于500字)
+                </div>
+            </td>
+            <td>
+                <div align="left">
+                    <textarea name="description" rows="6" style=width:165pt;></textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="right"></div>
+                <div align="center">
+                    <hr width="95%" size="1" color="#FE6702">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div align="right"></div>
+                <div align="center">
+                    <input type="submit" name="Submit" value="提交">
+                    &nbsp;
+                    <input type="reset" name="Submit" value="重置">
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+
+
+<script type="text/javascript">
+    function mycheck() {
+        var name = document.getElementsByName("name")[0];
+        var sex = document.getElementsByName("sex")[0];
+        var email = document.getElementsByName("email")[0];
+        var tel = document.getElementsByName("tel")[0];
+        var subject = document.getElementsByName("subject")[0];
+
+        if (name.value === "") {
+            alert("姓名不能为空");
+            return false;
+        }
+
+        if (sex.value === "none") {
+            alert("请选择性别");
+            return false;
+        }
+
+        if (!email.value.includes("@")) {
+            alert("邮件地址不规范");
+            return false;
+        }
+
+
+        // var intLength = parseInt(tel.value).toString().length;
+        // var telLength = tel.value.length;
+        //
+        // if(telLength > intLength){
+        //     alert("电话只能是数字");
+        //     return false;
+        // }else if (intLength != 8 ) {
+        //     alert("电话不规范");
+        //     return false;
+        // }
+
+        // if(telLength != 8){
+        //     if (isNaN(parseInt(tel.value))) {
+        //     alert("电话只能是数字");
+        //     return false;
+
+        //   }
+        //     alert("电话不规范");
+        //     return false;
+        // }
+
+        //正则
+        var pat = /^[0-9]*$/;
+        if (!pat.test(tel.value)) {
+            alert("电话只能是数字");
+            return false;
+        }else if(tel.value.length !== 8){
+            alert("电话应为8位");
+            return false;
+        }
+
+
+        if (subject.selectedIndex === -1) {
+            alert("必须选一门选修课");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</html>

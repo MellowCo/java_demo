@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans     
+       http://www.springframework.org/schema/beans/spring-beans.xsd    
+       http://www.springframework.org/schema/context    
+       http://www.springframework.org/schema/context/spring-context.xsd    
+       http://www.springframework.org/schema/aop    
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx     
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--需要扫描的包-->
+    <context:component-scan base-package="com.li">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 导入jdbc.properties -->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <!-- c3p0数据源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+    </bean>
+    
+    <!--整合mybatis-->
+    <!-- sqlSessionFactory -->
+    <bean id="sqlSessionFactoryBuilder" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 加载mybatis的全局配置文件 -->
+        <!-- 指定sqlMapConfig总配置文件，订制的environment在spring容器中不在生效-->
+        <!--<property name="configLocation" value="classpath:mybatisConfig.xml" />-->
+
+        <!-- 配置别名 -->
+        <property name="typeAliasesPackage" value="com.li.damain"/>
+    </bean>
+
+    <!-- 配置mapper扫描器 -->
+    <bean id="configurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 扫描包路径 -->
+        <!-- basePackage可以写多个，可以用,;\t\n进行分割 -->
+        <property name="basePackage" value="com.li.dao"/>
+        <!--这个属性一般都用不到，只有当你配置多数据源的时候，这是会有多个sqlSessionFactory，
+        你就需要通过该属性来指定哪一个sqlSessionFactory
+        （值为SqlSessionFactoryBean <bean>配置中的id属性）。-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBuilder"/>
+    </bean>
+
+
+    <!-- spring声明式事务管理 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+     </bean>
+
+    <tx:advice id="interceptor" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="find*" read-only="true"  propagation="SUPPORTS"/>
+            <tx:method name="*" read-only="false" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="p" expression="execution(* com.li.services.*.*(..))"/>
+        <aop:advisor advice-ref="interceptor" pointcut-ref="p"/>
+    </aop:config>
+
+    
+    
+</beans>

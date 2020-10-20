@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>car</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #Login {
+            width: 450px;
+            height: 460px;
+            background: skyblue;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+
+        #tabName {
+            list-style: none;
+        }
+
+
+        #tabName li {
+            line-height: 60px;
+            width: 50%;
+            font-size: 20px;
+            float: left;
+            text-align: center;
+        }
+
+        #merLogin{
+            background-color: #8cc152;
+
+        }
+
+        #clientLogin{
+            background-color: skyblue;
+        }
+
+        #tabName li:hover {
+        }
+
+        #tabCon {
+            margin: 75px auto 10px;
+            height: 150px;
+        }
+
+
+        #tabCon input {
+            height: 45px;
+            width: 400px;
+            font-size: 15px;
+            margin: 0 auto 15px;
+        }
+
+        #wj {
+            float: right;
+            margin-right: 15px;
+            list-style: none;
+        }
+
+        #tabDown {
+        }
+
+        /*设置登陆按钮大小*/
+        #loginButton {
+            display: block;
+            height: 60px;
+            width: 400px;
+            margin: 0 auto;
+            font-size: 25px;
+            color: white;
+            background-color: rgb(250, 190, 0);
+            border-radius: 5px;
+            border: 1px solid blue;
+        }
+
+        #loginButton, #registerButton:hover {
+            cursor: pointer
+        }
+
+        /*设置注册按钮样式*/
+        #registerButton {
+            display: block;
+            height: 60px;
+            width: 400px;
+            margin: 10px auto;
+            font-size: 20px;
+            background-color: rgb(250, 251, 252);
+            border-radius: 5px;
+            border: 1px solid blue;
+        }
+
+        .mer {
+            display: none;
+        }
+
+        .client {
+            display: list-item;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="Login">
+    <!-- 登陆头 -->
+    <ul id="tabName">
+        <li id="clientLogin">用户登录</li>
+        <li id="merLogin">商家登录</li>
+    </ul>
+    <!-- 登陆头结束 -->
+
+    <!--登陆内容区-->
+    <div id="tabCon">
+        <!-- 商家 -->
+        <ul>
+            <!--用户名-->
+            <li id="zh">
+                <input type="text" id="clientId" name="id" class="client" placeholder="请输入普通用户帐号">
+                <input type="text" id="merId" name="id" class="mer" placeholder="请输入商家帐号">
+            </li>
+
+            <!--密码-->
+            <li id="pwd">
+                <input type="password" id="clientPwd" name="pwd" class="client" placeholder="普通用户密码">
+                <input type="password" id="merPwd" name="pwd" class="mer" placeholder="商家密码">
+            </li>
+
+            <li id="wj">
+                <a href="#">忘记密码?</a>
+            </li>
+
+        </ul>
+
+
+    </div>
+
+
+    <!--登陆内容区结束-->
+
+    <!--登陆尾部-->
+    <div id="tabDown">
+        <!--登陆按钮-->
+        <button id="loginButton" type="submit">登陆</button>
+        <!--注册按钮-->
+        <button id="registerButton" type="submit">还不是会员?<a href="#">立即注册</a></button>
+
+
+    </div>
+    <!--结束-->
+
+
+</div>
+
+<script type="text/javascript">
+    var client = document.querySelectorAll(".client");
+    var mer = document.querySelectorAll(".mer");
+
+    var clientLogin = document.getElementById("clientLogin");
+    var merLogin = document.getElementById("merLogin");
+
+    merLogin.onclick = function LoginTabColor() {
+        merLogin.style.backgroundColor = "skyblue";
+        clientLogin.style.backgroundColor = "#8cc152";
+        for (var a=0;a<mer.length;a++) {
+            client[a].style.display = "none";
+            mer[a].style.display = "list-item";
+        }
+    };
+
+    clientLogin.onclick = function LoginTabColor() {
+        clientLogin.style.backgroundColor = "skyblue";
+        merLogin.style.backgroundColor = "#8cc152";
+
+        for (var a=0;a<mer.length;a++) {
+            client[a].style.display = "list-item";
+            mer[a].style.display = "none";
+
+        }
+    };
+
+
+</script>
+</body>
+</html>

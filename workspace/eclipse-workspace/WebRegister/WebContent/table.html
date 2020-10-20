@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.abc {	color: #FF0000;
+}
+</style>
+</head>
+
+<body>
+
+<form action="add.jsp" method="post" >
+  <table width="100%" border="0">
+      <tr align="right">
+      <td colspan="2"><hr align="center" color="#FF0000"></td>
+    </tr>
+    <tr>
+      <td width="50%" align="right">学号：<span class="abc">*</span></td>
+      <td width="50%" align="left"><label for="textfield2"></label>
+      <input type="text" name="id" id="textfield2" /></td>
+    </tr>
+    <tr align="right">
+      <td colspan="2"><hr align="center" color="#FF0000"></td>
+    </tr>
+    <tr>
+      <td width="50%" align="right">姓名：<span class="abc">*</span></td>
+      <td width="50%" align="left"><label for="textfield2"></label>
+      <input type="text" name="name" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td align="right"><span id="form5">性别 <span class="abc">:</span></span><span class="abc">*</span></td>
+      <td align="left"><label for="select"></label>
+        <select name="sex" id="select">
+          <option value="未选择">未选择</option>
+          <option value="男">男</option>
+          <option value="女">女</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td align="right"><span id="form2">Email邮件:</span><span class="abc">*</span></td>
+      <td align="left"><label for="textfield3"></label>
+      <input type="text" name="email" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td align="right">电话:<span class="abc">* </span></td>
+      <td align="left"><label for="textfield4"></label>
+      <input type="text" name="tel" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td align="right">所在班级
+    :</td>
+      <td align="left"><label for="textfield5"></label>
+      <input type="text" name="class" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td align="right">QQ号码
+    :</td>
+      <td align="left"><label for="textfield6"></label>
+      <input type="text" name="qq" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td align="right">入学年份:</td>
+      <td align="left"><label for="select2"></label>
+        <select name="year" id="select2">
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><hr align="center" color="#FF0000"></td>
+    </tr>
+    <tr>
+      <td align="right"><p>选修科目
+        :<span class="abc">*</span></p>
+      <p>(可多选)</p></td>
+      <td align="left"><label for="select3"></label>
+        <select name="major" size="3" id="select3" multiple="multiple">
+          <option value="数据结构">数据结构</option>
+          <option value="操作系统">操作系统</option>
+          <option value="微机原理">微机原理</option>
+          <option value="计算机">计算机</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td align="right"> 照片上传
+    : </td>
+      <td align="left"><label for="fileField"></label>
+      <input type="file" name="fileField" id="fileField" /></td>
+    </tr>
+    <tr>
+      <td align="right"><p>个人简历 : </p>
+      <p>(不多于500字) </p></td>
+      <td align="left"><label for="textarea"></label>
+      <textarea name="memo" id="textarea" cols="45" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td align="right">上网地点: </td>
+      <td align="left"><input name="address" type="checkbox" id="checkbox" value="宿舍" />
+      <label for="checkbox">宿舍
+        <input name="address" type="checkbox" id="checkbox" value="网吧" />
+      网吧
+      <input name="address" type="checkbox" id="checkbox" value="机房" />
+      机房
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><hr align="center" color="#FF0000"></td>
+    </tr>
+    <tr>
+      <td align="right"><input type="submit" name="button" id="button" value="提交" /></td>
+      <td align="left"><input type="reset" name="button2" id="button2" value="重置" /></td>
+    </tr>
+  </table>
+  <label for="textfield"></label>
+</form>
+</body>
+</html>

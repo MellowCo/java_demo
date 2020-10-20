@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影排行榜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 500px;
+            height: 600px;
+            border: black 1px solid;
+            margin: 50px auto;
+        }
+
+        .box h1{
+            font-size: 30px;
+            color: skyblue;
+            margin:5px auto 5px 5px;
+            border-bottom: skyblue 1px dashed;
+        }
+
+        .box>ul{
+            list-style: none;
+        }
+
+        .box>ul>li>span{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .box>ul>li{
+            font-size: 20px;
+            border-bottom: skyblue 1px dashed;
+        }
+
+        .content>img{
+            width: 200px;
+            height: 290px;
+            float: left;
+        }
+
+
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .content{
+            display: none;
+        }
+
+        .currrnt .content{
+            display: block;
+        }
+
+
+
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("li").hover(function () {
+                //设置移入事件
+                $(this).addClass("currrnt");
+            },function () {
+                $(this).removeClass("currrnt");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div class="box">
+    <h1>电影排行榜</h1>
+    <ul>
+        <li><span>1</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div>
+        </li>
+        <li><span>2</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div></li>
+        <li><span>3</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div></li>
+        <li><span>4</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div></li>
+        <li><span>5</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div></li>
+        <li><span>6</span>电影名称
+            <div class="content clearfix">
+                <img src="zl.jpg" alt="">
+                <p>
+                    简介：故事发生在非洲附近的大海上，主人公冷锋（吴京 饰）遭遇人生滑铁卢，被“开除军籍”，本想漂泊一生的他，正当他打算这么做的时候，一场突如其来的意外打破了他的计划，突然被卷入了一场
+                </p>
+            </div></li>
+    </ul>
+
+</div>
+
+</body>
+</html>

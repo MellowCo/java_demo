@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var a = [1, 12, 2, 4, 34, 3, 11];
+        var sum = 0;
+        a.forEach(function (value, index, arr) {
+            console.log("index[" + index + "]=" + value);
+            console.log(arr.toString());
+            sum += value;
+        });
+        console.log(sum);
+        sum = 0;
+        for (var e in a) {
+            console.log(a[e]);
+            sum += a[e];
+        }
+        console.log(sum);
+
+        a.sort(function (a, b) {
+            // if(a>b){
+            //     return -1;
+            // }else if (a<b){
+            //     return 1;
+            // }else{
+            //     return 0;
+            // }
+            return a > b ? 1 : -1;
+        });
+
+        console.log(a.toString());
+        console.log(a);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

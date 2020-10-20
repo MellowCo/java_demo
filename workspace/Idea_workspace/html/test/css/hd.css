@@ -1,0 +1,33 @@
+*{
+    padding:0;
+    margin: 0;
+}
+
+
+.nav{
+    list-style: none;
+    width: 75%;
+    background-color:skyblue ;
+    overflow: hidden;
+    margin: 10px auto;
+}
+
+.nav li{
+    float: left;
+    width: 25%;
+}
+
+.nav a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-family: "微软雅黑", serif;
+    font-weight: bolder;
+    color: white;
+    padding:3px 0;
+}
+
+.nav a:hover{
+    background: red;
+}

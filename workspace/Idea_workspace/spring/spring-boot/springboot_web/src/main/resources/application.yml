@@ -1,0 +1,22 @@
+# 禁用模板引擎缓存
+spring:
+  thymeleaf:
+    cache: false
+# 设置国际化文件位置
+  messages:
+    basename: i18n/login
+# 自定义静态资源文件夹
+  resources:
+    static-locations: classpath:/li/,classpath:/static/
+# 设置静态资源映射路径，默认为 /**
+  mvc:
+    static-path-pattern: /static/**
+    # 更改日期转化格式
+    date-format: yyyy-MM-dd
+server:
+  # 更改默认端口号
+  port: 8081
+  # 添加项目名
+  servlet:
+    context-path: /web
+

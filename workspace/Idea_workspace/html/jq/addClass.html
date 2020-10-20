@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+
+    <style>
+        .one{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+
+        .two{
+            border: 5px black solid;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var button = $("button");
+            var div = $("div");
+            button[0].onclick = function () {
+                div.addClass("one two");
+            };
+            button[1].onclick = function () {
+                div.removeClass("two");
+            };
+            button[2].onclick = function () {
+                div.toggleClass("one");
+            };
+        });
+
+    </script>
+</head>
+<body>
+<button>添加class</button>
+<button>删除class</button>
+<button>替换class</button>
+
+<div></div>
+</body>
+</html>

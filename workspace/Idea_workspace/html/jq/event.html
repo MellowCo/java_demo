@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <style>
+        .father{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+        .son{
+            height: 50px;
+            width: 50px;
+            background-color:red;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            //jQuery两种事件绑定方式
+            //1.eventName(fn)
+            //编码效率高，部分事件jQuery没有实现，所以不能添加
+
+            //2.on(eventName,fn)
+            //效率低，所有js事件都可以添加
+            function test() {
+                alert("1");
+            };
+            $("button").click(test);
+
+
+            $("button").click(function () {
+                alert("3");
+            });
+            $("button").click(function () {
+                alert("5");
+            });
+            $("button").mouseenter(function () {
+                alert("mouseenter");
+            });
+
+            $("button").on("click",function () {
+                alert("on");
+            });
+
+            //off() 解绑事件
+            /*
+            不传参数，会移除对象的所有事件
+            一个参数，会移除对象指定的类型的事件
+            两个参数，会移除对象指定事件
+
+             */
+            // $("button").off();
+            // $("button").off("click");
+            $("button").off("click", test);
+
+
+            $(".father").click(function () {
+                alert("father");
+            });
+
+            $(".son").click(function (event) {
+                alert("son");
+                // return false;
+                // event.stopPropagation();
+            });
+
+            $("a").click(function (event) {
+                alert("a");
+                return false;
+                event.preventDefault();
+            });
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<button>dadasd</button>
+
+<div class="father">
+    <div class="son"></div>
+</div>
+
+<a href="www.xxx.com">aa</a>
+</body>
+</html>

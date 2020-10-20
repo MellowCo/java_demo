@@ -1,0 +1,9 @@
+logging:
+  pattern:
+    # 在控制台输出的日志的格式
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){yellow} [%thread] %-5level %logger{50} - %msg%n"
+      #指定文件中日志输出的格式
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+  file: "/log/my.log"
+  level:
+    com.li.springboot3: debug

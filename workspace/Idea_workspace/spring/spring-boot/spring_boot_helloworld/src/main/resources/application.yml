@@ -1,0 +1,17 @@
+#person:
+#  name: li
+#  age: 12
+#  birthday: 2019/12/12
+#  sex: false
+#  maps:
+#    k1: v1
+#    k2:
+#     dog:
+#       name: dog
+#       age: 2
+#  lists:
+#    - 1
+#    - string
+#  dog:
+#    name: dog2
+#    age: 3

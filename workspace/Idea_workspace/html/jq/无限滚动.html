@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限滚动</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var offset = 0;
+            var time;
+            function auto() {
+                time = setInterval(function () {
+                    if(offset <= -1200){
+                        offset  = 0;
+                    }
+                    $("ul").css("marginLeft", offset-=10);
+                },50);
+            }
+            auto();
+
+            $("li").hover(function () {
+                //停止定时器
+                clearInterval(time);
+                $(this).siblings().fadeTo(0, 0.5);
+                $(this).fadeTo(0,1);
+            },function () {
+                auto();
+                $("li").fadeTo(0, 1);
+            })
+
+        });
+    </script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 600px;
+            height: 161px;
+            border: 1px black solid;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul{
+            width: 3600px;
+            height: 161px;
+            list-style: none;
+            background-color: orange;
+        }
+        
+        li{
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><img src="img/a.jpg" alt=""></li>
+        <li><img src="img/b.jpg" alt=""></li>
+        <li><img src="img/c.jpg" alt=""></li>
+        <li><img src="img/d.jpg" alt=""></li>
+        <li><img src="img/a.jpg" alt=""></li>
+        <li><img src="img/b.jpg" alt=""></li>
+    </ul>
+</div>
+
+</body>
+</html>

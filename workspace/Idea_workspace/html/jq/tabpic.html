@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tabPic</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 1000px;
+            height: 500px;
+            border: 1px skyblue solid;
+            margin: 50px auto;
+        }
+
+        .nav{
+            list-style: none;
+            width: 100%;
+            height: 50px;
+            background-color: skyblue;
+        }
+
+        .nav>li{
+            float: left;
+            width: 25%;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .nav>.navcon{
+            background-color: dodgerblue;
+        }
+
+        .imgbox img{
+            width: 1000px;
+            height: 450px;
+        }
+
+
+        .imgbox>li{
+            display: none;
+        }
+
+        .imgbox>.current{
+            display: block;
+        }
+
+
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    </style>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(".nav>li").hover(function () {
+               $(this).addClass("navcon").siblings().removeClass("navcon");
+               $(".imgbox>li").eq($(this).index()).addClass("current").siblings().removeClass("current");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div class="box">
+    <ul class="clearfix nav">
+        <li class="navcon">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    
+    <ul class="imgbox">
+        <li class="current"><img src="img/1.jpg" alt=""></li>
+        <li><img src="img/2.jpg" alt=""></li>
+        <li><img src="img/3.jpg" alt=""></li>
+        <li><img src="img/4.jpg" alt=""></li>
+    </ul>
+
+</div>
+
+
+</body>
+</html>

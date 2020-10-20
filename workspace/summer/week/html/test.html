@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+
+<input type="checkbox" name="test">1
+<input type="checkbox" name="test">2
+<input type="checkbox" name="test">3
+<input type="checkbox" name="test">4
+<button id="selectAll">全选</button>
+<button id="noSelect">全不选</button>
+</body>
+
+<script>
+    var all = document.getElementById("selectAll");
+    var no = document.getElementById("noSelect");
+    var box = document.getElementsByName("test");
+
+    all.onclick = function () {
+        for (var i = 0;i < box.length;i++){
+            box[i].checked = true;
+        }
+    };
+
+    no.onclick = function () {
+        for (var i = 0;i < box.length;i++){
+            box[i].checked = false;
+        }
+    };
+</script>
+</html>

@@ -1,0 +1,17 @@
+�类--一个原始流处理器,它包括如下几个子类:<br />
+</p>
+<p>BufferedInputStream: 用来将数据读入内存缓冲区,并从此缓冲区提供数据<br />
+</p>
+<p>DataInputStream: 提供基于多字节的读取方法,可以读取原始数据类型(Byte, Int, Long, Double等等)<br />
+</p>
+<p>LineNumberInputStream:&nbsp; 提供具有行计数功能的流处理器<br />
+</p>
+<p>PushbackInputStream:&nbsp; 提供已读取字节"推回"输入流的功能<br />
+</p>
+<p>2) ObjectInputStream: 可以将使用ObjectOutputStream写入的基本数据和对象进行反串行化<br />
+</p>
+<p>3) SequenceInputStream: 可以合并多个InputStream原始流,依次读取这些合并的原始流&nbsp;<br />
+</p>
+<p>对于OutputStream, Reader, Writer的体系结构也跟InputStream的结构类似<br />
+</p>
+<p>以上所述是小编给大家介绍的Java IO流体系继承结构图_动力节点Java学院整理，希望对大家有所帮助，如果大家有任何疑问请给我留言，小编会及时

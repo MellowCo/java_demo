@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+       $(".alink").click(function () {
+           console.log($(this).attr("href"));
+           var a = $(this).attr("href");
+           alert(a);
+       })
+    });
+</script>
+</head>
+<body>
+<a href="javascript:;" class="alink">1</a>
+<a href="2" class="alink">2</a>
+<a href="3" class="alink">3</a>
+</body>
+</html>

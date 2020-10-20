@@ -1,0 +1,21 @@
+# \u914D\u7F6E\u6570\u636E\u5E93\u8FDE\u63A5
+spring:
+  datasource:
+    username: root
+    password: li1234
+    url: jdbc:mysql://localhost:3306/cache?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    # driver-class\u53EF\u4EE5\u4E0D\u5199
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.1.134
+
+mybatis:
+  configuration:
+    # \u5F00\u542F\u9A7C\u5CF0\u547D\u540D\u89C4\u5219
+    map-underscore-to-camel-case: true
+
+# mapper包下日志级别为debug,打印sql语句
+logging:
+  level:
+    com.li.springboot.cache.mapper: debug
+

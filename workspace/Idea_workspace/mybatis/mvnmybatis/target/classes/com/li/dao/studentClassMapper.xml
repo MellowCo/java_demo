@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.li.dao.StudentClassMapper">
+    <select id="queryClassByClassId" parameterType="int" resultMap="queryClass">
+        select * from studentclass where classid = #{classid}
+    </select>
+
+    <resultMap id="queryClass" type="StudentClass">
+        <id property="classId" column="classid"/>
+        <result property="classInfo" column="classinfo"/>
+        <collection property="students" ofType="Student" select="com.li.dao.StudentMapper.queryStudentByClassId" column="classid"></collection>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,118 @@
+.header{
+	display: flex;
+	align-items: flex-start;
+	padding: 10px;
+}
+
+/*.user_icon{
+	height: 50px;
+	width: 50px;
+}*/
+
+/*.header_search{
+	border-radius: 50px;
+	height: 50px;
+	width: 500px;
+	margin: 0 20px;
+}*/
+
+.content{
+	background-color: rgb(244, 244, 244);
+	padding: 20px 0;
+}
+
+.pic_slide{
+	margin-bottom: 20px;
+}
+
+
+.video{
+	padding: 0 20px;
+}
+
+.red_span{
+	font-size: 10px;
+	color: white;
+	background-color: rgb(251, 158, 96);
+	padding: 5px;
+	border-radius: 5px;
+	margin-right: 10px;
+	line-height: 20px;
+}
+
+.font_p{
+	margin: 0;
+}
+
+.font_span{
+	color: rgb(159, 159, 159);
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.footer{
+	background-color: rgb(255,255,255);
+}
+
+
+.ft{
+	font-size: 20px;
+	font-weight: bold;
+
+}
+.search{
+	background: skyblue;
+	padding: 10px;
+}
+
+.searchig{
+	margin-bottom: 10px;
+	color: white;
+	font-size: 15px;
+}
+
+.tu{
+	margin: 10px auto;
+}
+
+.pz_h{
+	font-weight: bold;
+}
+
+
+.pz_a{
+	color: gold;
+}
+
+.xz_p{
+	font-size: 20px;
+}
+
+.dd1{
+	font-weight: bold;
+
+}
+
+.dd2 span{
+	border: 1px solid black;
+}
+
+.dd3{
+	background: red;
+	color: white;
+	padding: 3px;
+}
+
+.dd4{
+	background: green;
+	color: white;
+	padding: 3px;
+}
+
+.p_l{
+	float: left;
+}
+
+.p_r{
+	float: right;
+}

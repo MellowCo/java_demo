@@ -1,0 +1,40 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xmlns:aop="http://www.springframework.org/schema/aop"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--        http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--        http://www.springframework.org/schema/aop-->
+<!--        http://www.springframework.org/schema/aop/spring-aop.xsd-->
+<!--        http://www.springframework.org/schema/context-->
+<!--        http://www.springframework.org/schema/context/spring-context.xsd">-->
+
+
+<!--    &lt;!&ndash;<context:component-scan base-package="com.li"></context:component-scan>&ndash;&gt;-->
+
+<!--    <bean id="accountService" class="com.li.service.impl.AccountServiceImpl"></bean>-->
+
+<!--    <bean id="log" class="com.li.utils.Logger"></bean>-->
+
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="logEx" expression="execution(* com.li.service.impl.AccountServiceImpl.*(..))"/>-->
+<!--        <aop:aspect id="logActice" ref="log">-->
+<!--            &lt;!&ndash;<aop:before method="beforeLog"&ndash;&gt;-->
+<!--            &lt;!&ndash;            pointcut-ref="logEx"></aop:before>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;<aop:after-returning method="afteringLog"&ndash;&gt;-->
+<!--            &lt;!&ndash;                     pointcut-ref="logEx"></aop:after-returning>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;<aop:after-throwing method="thowingLog"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    pointcut-ref="logEx"></aop:after-throwing>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;<aop:after method="afterLog"&ndash;&gt;-->
+<!--            &lt;!&ndash;           pointcut-ref="logEx"></aop:after>&ndash;&gt;-->
+<!--            &lt;!&ndash;<aop:around method="aroundLog" pointcut-ref="logEx"></aop:around>&ndash;&gt;-->
+
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
+
+<!--</beans>-->

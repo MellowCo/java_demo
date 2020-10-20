@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script>
+        //通过Ajax异步方式 请求服务端
+        var xml = new XMLHttpRequest();
+        function f() {
+            /*
+            post
+            //设置xml的回调函数
+            xml.onreadystatechange = callBack;
+            xml.open("post", "LoginServlet", true);
+            //设置xml post的头信息
+            xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xml.send("tel="+document.getElementsByName("tel")[0].value);
+            */
+
+            //get
+            //设置xml 的回调函数
+            xml.onreadystatechange= callBack;
+            //
+            xml.open("get","LoginServlet?tel="+document.getElementsByName("tel")[0].value,true);
+            //发送
+            xml.send();
+
+        }
+
+        //回调函数
+        function callBack() {
+            if(xml.readyState == 4 && xml.status == 200){
+                if (xml.responseText == "true"){
+                    alert("注册成功2");
+                }else{
+                    alert("注册失败2");
+                }
+            }
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+
+    电话:<input type="text" name="tel">
+    <button onclick="f()">提交</button>
+
+</body>
+</html>

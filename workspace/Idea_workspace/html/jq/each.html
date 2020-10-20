@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+           var arr = [1,2,43,45,42,23,32];
+          var eachArr =  $.each(arr, function (index,value) {
+               console.log(index,value);
+           });
+            console.log(eachArr);
+
+
+            var mapArr = $.map(arr,function (index,value) {
+              console.log(index,value);
+              return index + value;
+           });
+            console.log(mapArr);
+
+
+            var str = "    str    ";
+            var res = $.trim(str);
+            console.log(res);
+
+            console.log($("#one").attr("checked")); //undefined checked
+            console.log($("#one").prop("checked")); //false true
+
+        });
+
+    </script>
+</head>
+<body>
+<input type="checkbox" id="one" checked>
+</body>
+</html>

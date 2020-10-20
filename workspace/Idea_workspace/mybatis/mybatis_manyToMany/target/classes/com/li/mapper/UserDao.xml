@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.li.mapper.UserDao">
+    <resultMap id="UserMap" type="user">
+        <id property="id" column="id"></id>
+        <result column="username" property="username"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="address" property="address"/>
+
+        <collection property="accounts" column="id" select="com.li.mapper.AccountDao.findByUid" fetchType="lazy"></collection>
+    </resultMap>
+
+    <resultMap id="UserRole" type="user">
+        <id property="id" column="id"></id>
+        <result column="username" property="username"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="sex"/>
+        <result column="address" property="address"/>
+
+        <collection property="roles" ofType="role">
+            <id property="id" column="rid"/>
+            <result property="name" column="role_name"/>
+            <result property="desc" column="role_desc"/>
+        </collection>
+
+
+    </resultMap>
+
+    <select id="findAll" resultMap="UserMap">
+        select * from user
+    </select>
+
+    <select id="findUserRole" resultMap="UserRole">
+        select user.*,role.id as rid, role_name, role_desc from user left join user_role ur on user.id = ur.UID left join role on ur.rid = role.id
+    </select>
+
+    <select id="findById" resultType="user" >
+        select * from user where id = #{id}
+    </select>
+
+</mapper>

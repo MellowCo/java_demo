@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/hd.css">
+
+</head>
+<body>
+<button id="but">按钮</button>
+<button id="and" onclick="and()">按钮2</button>
+<input type="checkbox" name="box" id="check" value="li">
+
+<ul class="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">新闻</a></li>
+    <li><a href="#">联系</a></li>
+    <li><a href="#">关于</a></li>
+</ul>
+dasdasdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+<a href="http://www.w3school.com.cn/htmldom/index.asp">Dom</a>
+<script>
+    var c = document.getElementsByName("box");
+    var b = document.getElementById("but");
+    b.onclick = function () {
+        b.innerHTML = "but";
+        alert(c[0].value);
+        alert(c[0].id);
+        alert(c[0].type);
+    };
+
+    function and() {
+        document.getElementById("and").innerHTML = "and";
+    }
+
+
+</script>
+
+</body>
+</html>

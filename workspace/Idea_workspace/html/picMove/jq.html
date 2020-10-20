@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // var img = $("img");
+            // console.log(img);
+            //
+            // var imgWidth = img.width();
+            // console.log(imgWidth);
+            alert("inj1");
+        });
+
+        $(document).ready(function () {
+            alert("inj2");
+        });
+
+        window.onload = function () {
+            // var img = document.getElementsByTagName("img")[0];
+            // console.log(img);
+            //
+            // var imgWidth = window.getComputedStyle(img).width;
+            // console.log(imgWidth);
+            alert("inj1");
+        };
+
+        window.onload = function () {
+            alert("inj2");
+        };
+
+    </script>
+
+</head>
+<body>
+<img src="img/1.jpg" alt="">
+
+</body>
+</html>
